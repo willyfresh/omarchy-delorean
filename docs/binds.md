@@ -1,6 +1,7 @@
 # Bind overlay
 
-User file: `config/hypr/bindings.lua` → `~/.config/hypr/bindings.lua`.
+User files: `config/hypr/bindings.lua` and `config/hypr/input.lua`
+(plus `config/xkb` for the Compose option) → the matching paths under `~/.config`.
 Omarchy defaults stay loaded. Every stolen key is unbound first.
 
 | Key | Was (Omarchy) | Becomes | Displacement |
@@ -18,9 +19,14 @@ Omarchy defaults stay loaded. Every stolen key is unbound first.
 | Super+Ctrl+L | Lock | Toggle workspace layout | swapped with Super+L |
 | Super+D | unbound | Discord webapp | Super+Shift+D is Docker TUI again |
 | Super+Shift+D | LazyDocker, then Discord | Docker TUI (stock) | Discord moved to Super+D |
-| Super+S | Toggle scratchpad | Same, but notify if empty | Super+Alt+S still parks a window |
+| Super+S | Toggle scratchpad | Same, but notify if empty | Super+Shift+S parks a window |
+| Super+Shift+S | Google Maps | Move window to scratchpad | Super+Alt+S still parks too |
+| Super+Shift+M | Music (Spotify) | Google Maps | Music TUI stays Super+Shift+Alt+M |
+| Super+M | unbound | YouTube Music | Super+Shift+Y still YouTube |
 | Super+O | Pop window out | LibreOffice | Pop-out is Super+Shift+O |
 | Super+Shift+O | Obsidian, then LibreOffice | Pop window out | LibreOffice is Super+O |
+| CapsLock | Compose (XCompose) | Caps Lock | Compose is both Shifts together |
+| Both Shifts together | Caps Lock (self-clearing) | Compose (Multi_key) | CapsLock is Caps Lock again |
 
 Kept on purpose:
 
@@ -28,6 +34,7 @@ Kept on purpose:
 - Super+Shift+W — Omawrite (wallpaper is Super+Ctrl+Space)
 - Super+Q, Super+Return, Super+1..0, Super+Tab, Super+F, Super+arrows
 
-Scratchpad: Super+Alt+S sends the focused window to a hidden workspace
-(`special:scratchpad`). Super+S slides that workspace on/off. It is not a
-panel or a dock — if nothing has been parked, Super+S has nothing to show.
+Scratchpad: Super+Shift+S (and Super+Alt+S) send the focused window to a
+hidden workspace (`special:scratchpad`). Super+S slides that workspace
+on/off. It is not a panel or a dock — if nothing has been parked, Super+S
+has nothing to show.

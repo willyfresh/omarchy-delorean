@@ -13,6 +13,7 @@ Too much. This repo is the inverse.
 | Super alone opens the launcher | Super release → `omarchy-menu toggle` (Super+Space still does too) |
 | Alt+F4 closes the window | Added; Super+Q added too (Omarchy 4 only closed on Super+W) |
 | Shift+Insert pastes | Terminal-aware paste (Ctrl+V in GUI) |
+| CapsLock is Caps Lock | Overlay `input.lua` + `config/xkb`; Compose is both Shifts together |
 
 ## From the Cachy overlay (apps, not a desktop rewrite)
 
@@ -29,8 +30,9 @@ Too much. This repo is the inverse.
 ## Already Omarchy — do not reimplement
 
 Ten workspaces on Super+1..0, Super+Tab workspace cycle, Super+Q close,
-Super+Return terminal, Super+S scratchpad, Super+F fullscreen, Super+arrows
-focus, workspace 10 labeled 0 on the bar, bar pins 1–5.
+Super+Return terminal, Super+S scratchpad (Super+Shift+S parks a window),
+Super+F fullscreen, Super+arrows focus, workspace 10 labeled 0 on the bar,
+bar pins 1–5.
 
 ## Look
 

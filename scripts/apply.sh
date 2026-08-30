@@ -39,6 +39,8 @@ link() {
 }
 
 link "$ROOT/config/hypr/bindings.lua" "$HOME/.config/hypr/bindings.lua"
+link "$ROOT/config/hypr/input.lua" "$HOME/.config/hypr/input.lua"
+link "$ROOT/config/xkb" "$HOME/.config/xkb"
 link "$ROOT/config/omarchy/themes/delorean" "$HOME/.config/omarchy/themes/delorean"
 
 if command -v hyprctl >/dev/null 2>&1; then

@@ -1,0 +1,7 @@
+// Both Shift keys together emit Multi_key (Compose).
+// Same TWO_LEVEL trick as xkeyboard-config's shift:both_capslock.
+partial modifier_keys
+xkb_symbols "both_shifts" {
+    key <LFSH> { type[Group1] = "TWO_LEVEL", [ Shift_L, Multi_key ] };
+    key <RTSH> { type[Group1] = "TWO_LEVEL", [ Shift_R, Multi_key ] };
+};

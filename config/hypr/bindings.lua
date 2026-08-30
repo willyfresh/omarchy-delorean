@@ -78,13 +78,14 @@ hl.unbind("SUPER + CTRL + L")
 o.bind("SUPER + L", "Lock system", "omarchy-system-lock")
 o.bind("SUPER + CTRL + L", "Toggle workspace layout", "omarchy-hyprland-workspace-layout-toggle")
 
--- Scratchpad is a hidden special workspace, not a panel. Super+Alt+S parks the
--- focused window there; Super+S shows/hides it. Empty toggle is a no-op in
--- Hyprland, so say so instead of looking broken.
+-- Scratchpad is a hidden special workspace, not a panel. Super+Shift+S parks
+-- the focused window there; Super+S shows/hides it. Super+Alt+S still parks
+-- too (stock). Empty toggle is a no-op in Hyprland, so say so instead of
+-- looking broken.
 local function toggle_scratchpad()
   local ws = hl.get_workspace("special:scratchpad")
   if not ws or (ws.windows or 0) == 0 then
-    hl.exec_cmd("omarchy-notification-send -u low 'Scratchpad is empty. Super+Alt+S parks a window here.'")
+    hl.exec_cmd("omarchy-notification-send -u low 'Scratchpad is empty. Super+Shift+S parks a window here.'")
     return
   end
   hl.dispatch(hl.dsp.workspace.toggle_special("scratchpad"))
@@ -92,6 +93,15 @@ end
 
 hl.unbind("SUPER + S") -- was: toggle scratchpad (same key, empty-aware)
 o.bind("SUPER + S", "Toggle scratchpad", toggle_scratchpad)
+
+-- Super+Shift+S was Google Maps. Scratch send takes it; Maps moves to
+-- Super+Shift+M (was Spotify). Super+M (was free) is YouTube Music, not
+-- Spotify. Super+Shift+Y stays stock YouTube.
+hl.unbind("SUPER + SHIFT + S") -- was: Google Maps
+o.bind("SUPER + SHIFT + S", "Move window to scratchpad", hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
+hl.unbind("SUPER + SHIFT + M") -- was: Music (Spotify)
+o.bind("SUPER + SHIFT + M", "Google Maps", { webapp = "https://maps.google.com/", focus = true })
+o.bind("SUPER + M", "YouTube Music", { webapp = "https://music.youtube.com/", focus = true })
 
 -- Super+D is free in stock Omarchy. Discord is the Chrome webapp, not a package.
 o.bind("SUPER + D", "Discord", { webapp = "https://discord.com/channels/@me", focus = true })

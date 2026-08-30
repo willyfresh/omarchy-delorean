@@ -1,0 +1,6 @@
+// Extend system evdev rules with Delorean Compose-on-both-Shifts.
+// %S is /usr/share/X11/xkb/rules — do not copy the stock file.
+! include %S/evdev
+
+! option                    = symbols
+  delorean:compose_shifts   = +delorean(both_shifts)
