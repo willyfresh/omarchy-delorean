@@ -2,6 +2,11 @@
 -- Loaded after Omarchy defaults from ~/.config/hypr/hyprland.lua.
 -- Unbind a default before replacing it. See docs/binds.md.
 
+require("hypr.windows")
+
+-- Persistent title-less Chrome apps (dedicated profile, not Default --app).
+local webapp = os.getenv("HOME") .. "/Projects/delorean/scripts/launch-or-focus-webapp.sh"
+
 -- Terminal-aware paste, same helper Omarchy uses for Super+V
 -- (default/hypr/bindings/clipboard.lua). Shift+Insert is the KDE habit.
 local function send_shortcut_once(mods, key)
@@ -100,11 +105,31 @@ o.bind("SUPER + S", "Toggle scratchpad", toggle_scratchpad)
 hl.unbind("SUPER + SHIFT + S") -- was: Google Maps
 o.bind("SUPER + SHIFT + S", "Move window to scratchpad", hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
 hl.unbind("SUPER + SHIFT + M") -- was: Music (Spotify)
-o.bind("SUPER + SHIFT + M", "Google Maps", { webapp = "https://maps.google.com/", focus = true })
-o.bind("SUPER + M", "YouTube Music", { webapp = "https://music.youtube.com/", focus = true })
+o.bind("SUPER + SHIFT + M", "Google Maps", webapp .. " chrome-maps.google.com.*Delorean https://maps.google.com/")
+o.bind("SUPER + M", "YouTube Music", webapp .. " chrome-music.youtube.com.*Delorean https://music.youtube.com/")
 
--- Super+D is free in stock Omarchy. Discord is the Chrome webapp, not a package.
-o.bind("SUPER + D", "Discord", { webapp = "https://discord.com/channels/@me", focus = true })
+-- Super+Shift+B was a second Browser (Super+W still opens Chrome). BGA takes
+-- it. Super+Shift+Alt+B stays private browser.
+hl.unbind("SUPER + SHIFT + B") -- was: Browser
+o.bind("SUPER + SHIFT + B", "Board Game Arena", webapp .. " chrome-boardgamearena.com.*Delorean https://boardgamearena.com/")
+
+-- Super+Shift+Return was a third Browser. Google Messages takes it.
+hl.unbind("SUPER + SHIFT + RETURN") -- was: Browser
+o.bind("SUPER + SHIFT + RETURN", "Google Messages", webapp .. " chrome-messages.google.com.*Delorean https://messages.google.com/web/conversations")
+hl.unbind("SUPER + SHIFT + CTRL + G") -- was: Google Messages (stock, Default-profile --app)
+o.bind("SUPER + SHIFT + CTRL + G", "Google Messages", webapp .. " chrome-messages.google.com.*Delorean https://messages.google.com/web/conversations")
+
+-- Super+Shift+G was Signal. Gmail takes it (title-less --app=URL). Super+Shift+E
+-- stays Thunderbird; Super+Shift+Alt+G stays WhatsApp.
+-- Focus by Chrome app class, not the label "Gmail": launch-or-focus matches
+-- titles too, and Thunderbird's "willyfresh@gmail.com" has a \bGmail\b hit.
+hl.unbind("SUPER + SHIFT + G") -- was: Signal
+o.bind("SUPER + SHIFT + G", "Gmail", webapp .. " chrome-mail.google.com.*Delorean https://mail.google.com/")
+
+-- Super+D was the Discord webapp (logged out on close). Native client now.
+-- Do not use launch-or-focus on class discord: the updater splash matches
+-- and Super+D just raises "Discord Updater".
+o.bind("SUPER + D", "Discord", os.getenv("HOME") .. "/Projects/delorean/scripts/launch-discord.sh")
 
 -- Super+Shift+D was Docker TUI, then Discord. Docker gets the chord back.
 hl.unbind("SUPER + SHIFT + D")

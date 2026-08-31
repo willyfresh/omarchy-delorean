@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=YouTube Music
+Exec=/home/willyfresh/Projects/delorean/scripts/launch-webapp.sh https://music.youtube.com/
+Terminal=false
+Type=Application
+Icon=chrome-cinhimbnkkaeohfgghhklpknlkffjgod-Default
+StartupNotify=true
+StartupWMClass=chrome-music.youtube.com-Delorean

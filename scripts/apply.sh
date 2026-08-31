@@ -40,8 +40,45 @@ link() {
 
 link "$ROOT/config/hypr/bindings.lua" "$HOME/.config/hypr/bindings.lua"
 link "$ROOT/config/hypr/input.lua" "$HOME/.config/hypr/input.lua"
+link "$ROOT/config/hypr/windows.lua" "$HOME/.config/hypr/windows.lua"
 link "$ROOT/config/xkb" "$HOME/.config/xkb"
 link "$ROOT/config/omarchy/themes/delorean" "$HOME/.config/omarchy/themes/delorean"
+
+# Chrome PWAs (--app-id) draw a CSD title bar. Maps/Messages use --app=URL
+# via omarchy-launch-webapp instead. Copy (do not symlink) over Chrome's
+# generated launchers so a Chrome rewrite cannot clobber the overlay source.
+apps="$HOME/.local/share/applications"
+install_desktop() {
+  local src="$1" dest="$2"
+  mkdir -p "$(dirname "$dest")"
+  if [[ -e "$dest" || -L "$dest" ]]; then
+    if [[ -f "$dest" ]] && cmp -s "$src" "$dest"; then
+      echo "already current: $dest"
+      return
+    fi
+    mv "$dest" "${dest}.bak.${stamp}"
+    echo "backed up ${dest} -> ${dest}.bak.${stamp}"
+  fi
+  cp "$src" "$dest"
+  echo "installed $dest"
+}
+
+install_desktop "$ROOT/config/applications/youtube-music.desktop" \
+  "$apps/chrome-cinhimbnkkaeohfgghhklpknlkffjgod-Default.desktop"
+install_desktop "$ROOT/config/applications/board-game-arena.desktop" \
+  "$apps/chrome-pogkokppkghfaeboimdkfifmcmlhngnl-Default.desktop"
+install_desktop "$ROOT/config/applications/gmail.desktop" \
+  "$apps/Gmail.desktop"
+install_desktop "$ROOT/config/applications/google-messages.desktop" \
+  "$apps/Google Messages.desktop"
+install_desktop "$ROOT/config/applications/google-maps.desktop" \
+  "$apps/Google Maps.desktop"
+install_desktop "$ROOT/config/applications/discord.desktop" \
+  "$apps/Discord.desktop"
+
+if command -v update-desktop-database >/dev/null 2>&1; then
+  update-desktop-database "$apps" >/dev/null 2>&1 || true
+fi
 
 if command -v hyprctl >/dev/null 2>&1; then
   hyprctl reload

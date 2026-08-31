@@ -17,16 +17,30 @@ Omarchy defaults stay loaded. Every stolen key is unbound first.
 | Super+Shift+Alt+E | HEY new message | Thunderbird compose | `thunderbird -compose` |
 | Super+L | Toggle workspace layout | Lock | Layout is Super+Ctrl+L |
 | Super+Ctrl+L | Lock | Toggle workspace layout | swapped with Super+L |
-| Super+D | unbound | Discord webapp | Super+Shift+D is Docker TUI again |
+| Super+D | unbound | Discord (native client) | Super+Shift+D is Docker TUI; webapp logged out on close |
 | Super+Shift+D | LazyDocker, then Discord | Docker TUI (stock) | Discord moved to Super+D |
 | Super+S | Toggle scratchpad | Same, but notify if empty | Super+Shift+S parks a window |
 | Super+Shift+S | Google Maps | Move window to scratchpad | Super+Alt+S still parks too |
 | Super+Shift+M | Music (Spotify) | Google Maps | Music TUI stays Super+Shift+Alt+M |
 | Super+M | unbound | YouTube Music | Super+Shift+Y still YouTube |
+| Super+Shift+B | Browser | Board Game Arena | Super+W still browser; Super+Shift+Alt+B still private |
+| Super+Shift+Return | Browser | Google Messages | Super+Shift+Ctrl+G still Messages |
+| Super+Shift+G | Signal | Gmail | Super+Shift+E still Thunderbird; WhatsApp is Super+Shift+Alt+G. Focus uses the Chrome app class so Thunderbird `@gmail.com` does not steal it. |
 | Super+O | Pop window out | LibreOffice | Pop-out is Super+Shift+O |
 | Super+Shift+O | Obsidian, then LibreOffice | Pop window out | LibreOffice is Super+O |
 | CapsLock | Compose (XCompose) | Caps Lock | Compose is both Shifts together |
 | Both Shifts together | Caps Lock (self-clearing) | Compose (Multi_key) | CapsLock is Caps Lock again |
+
+Web apps: title-less `--app=URL` windows via `scripts/launch-webapp.sh`,
+which uses a dedicated Chrome profile at `~/.local/share/delorean/chrome-webapps`.
+Default-profile `--app` windows drop site data when closed. Log in once in
+the new profile; after that BGA/Messages/Gmail/Maps/YouTube Music persist.
+
+Next empty workspace: new windows whose class is listed in
+`config/hypr/windows.lua` are moved to Hyprland `empty` (first empty
+workspace) on `window.open`. Focusing an already-open app stays put —
+close it first to test. Regular Chrome tabs are not in the list. Overlay
+lua is a symlink; after editing run `hyprctl reload`.
 
 Kept on purpose:
 

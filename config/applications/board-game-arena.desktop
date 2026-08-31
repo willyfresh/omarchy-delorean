@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Board Game Arena
+Exec=/home/willyfresh/Projects/delorean/scripts/launch-webapp.sh https://boardgamearena.com/
+Terminal=false
+Type=Application
+Icon=chrome-pogkokppkghfaeboimdkfifmcmlhngnl-Default
+StartupNotify=true
+StartupWMClass=chrome-boardgamearena.com-Delorean

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Google Messages
+Exec=/home/willyfresh/Projects/delorean/scripts/launch-webapp.sh https://messages.google.com/web/conversations
+Terminal=false
+Type=Application
+Icon=google-messages
+StartupNotify=true
+StartupWMClass=chrome-messages.google.com__web_conversations-Delorean

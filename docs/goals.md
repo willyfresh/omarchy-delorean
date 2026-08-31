@@ -23,7 +23,11 @@ Too much. This repo is the inverse.
 | Super+T VS Code | Float moves to Super+Alt+T |
 | Super+E file manager | Nautilus; Super+Shift+F stays |
 | Super+L lock | Layout toggle moves to Super+Ctrl+L |
-| Discord | Super+D (Omarchy webapp) |
+| Discord | Super+D native `discord` client (webapp logged out on close) |
+| Google Messages | Super+Shift+Return (was a redundant Browser) |
+| Board Game Arena | Super+Shift+B (was a redundant Browser) |
+| Gmail | Super+Shift+G (was Signal); title-less `--app=URL` like Maps |
+| Webapps on a spare workspace | Opt-in class list in `hypr/windows.lua` → Hyprland `empty` |
 | LibreOffice | Super+O |
 | Thunderbird | Super+Shift+E; compose is Super+Shift+Alt+E |
 

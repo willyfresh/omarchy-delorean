@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Discord
+# Masks Omarchy's Discord webapp (same desktop id). The native client is
+# /usr/share/applications/discord.desktop and stays in the menu.
+Hidden=true
+NoDisplay=true
+Exec=discord
+Terminal=false
+Type=Application
