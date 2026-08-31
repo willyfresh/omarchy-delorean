@@ -43,6 +43,7 @@ link "$ROOT/config/hypr/input.lua" "$HOME/.config/hypr/input.lua"
 link "$ROOT/config/hypr/windows.lua" "$HOME/.config/hypr/windows.lua"
 link "$ROOT/config/xkb" "$HOME/.config/xkb"
 link "$ROOT/config/omarchy/themes/delorean" "$HOME/.config/omarchy/themes/delorean"
+link "$ROOT/config/omarchy/plugins/delorean.tray" "$HOME/.config/omarchy/plugins/delorean.tray"
 
 # Chrome PWAs (--app-id) draw a CSD title bar. Maps/Messages use --app=URL
 # via omarchy-launch-webapp instead. Copy (do not symlink) over Chrome's

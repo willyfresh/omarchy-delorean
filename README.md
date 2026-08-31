@@ -40,6 +40,7 @@ config/hypr/bindings.lua                 # keybinding overrides
 config/hypr/input.lua                    # CapsLock + both-Shifts Compose
 config/hypr/windows.lua                  # opt-in: open listed apps on next empty workspace
 config/xkb/                              # custom XKB option for Compose
+config/omarchy/plugins/delorean.tray/    # tray: all icons visible, no overflow drawer
 config/applications/                     # --app=URL launchers (no PWA title bar)
 config/omarchy/themes/delorean/          # custom Omarchy theme
   backgrounds/                           # wallpapers, kept in git
