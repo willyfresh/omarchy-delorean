@@ -74,6 +74,8 @@ install_desktop "$ROOT/config/applications/google-messages.desktop" \
   "$apps/Google Messages.desktop"
 install_desktop "$ROOT/config/applications/google-maps.desktop" \
   "$apps/Google Maps.desktop"
+install_desktop "$ROOT/config/applications/google-calendar.desktop" \
+  "$apps/Google Calendar.desktop"
 install_desktop "$ROOT/config/applications/discord.desktop" \
   "$apps/Discord.desktop"
 

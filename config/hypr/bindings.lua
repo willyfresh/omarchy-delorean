@@ -50,9 +50,14 @@ o.bind("SUPER + SUPER_R", "Launcher", "omarchy-menu toggle", { release = true })
 -- Alt+F4 closes. Super+Q still closes.
 o.bind("ALT + F4", "Close window", hl.dsp.window.close())
 
--- Shift+Insert pastes, Shift+Delete cuts. Super+C/V/X stay Omarchy clipboard.
+-- Shift+Insert pastes, Shift+Delete cuts. Super+V is KDE clipboard history;
+-- Super+Ctrl+V takes Omarchy's universal paste. Super+C/X stay copy/cut.
 o.bind("SHIFT + Insert", "Paste", universal_clipboard_shortcut("CTRL", "V", "SHIFT", "Insert"))
 o.bind("SHIFT + Delete", "Cut", send_shortcut_once("CTRL", "X"))
+hl.unbind("SUPER + V") -- was: universal paste
+hl.unbind("SUPER + CTRL + V") -- was: clipboard manager
+o.bind("SUPER + V", "Clipboard manager", "omarchy-shell shell toggle omarchy.clipboard")
+o.bind("SUPER + CTRL + V", "Universal paste", universal_clipboard_shortcut("CTRL", "V", "SHIFT", "Insert"))
 
 -- Super+W was the only stock close chord in Omarchy 4. Browser takes Super+W;
 -- Super+Q is the close we actually want (same as the Cachy overlay). Alt+F4 too.
@@ -125,6 +130,10 @@ o.bind("SUPER + SHIFT + CTRL + G", "Google Messages", webapp .. " chrome-message
 -- titles too, and Thunderbird's "willyfresh@gmail.com" has a \bGmail\b hit.
 hl.unbind("SUPER + SHIFT + G") -- was: Signal
 o.bind("SUPER + SHIFT + G", "Gmail", webapp .. " chrome-mail.google.com.*Delorean https://mail.google.com/")
+
+-- Super+Shift+C was HEY Calendar. Super+C stays Omarchy clipboard.
+hl.unbind("SUPER + SHIFT + C") -- was: HEY Calendar
+o.bind("SUPER + SHIFT + C", "Google Calendar", webapp .. " chrome-calendar.google.com.*Delorean https://calendar.google.com/")
 
 -- Super+D was the Discord webapp (logged out on close). Native client now.
 -- Do not use launch-or-focus on class discord: the updater splash matches
