@@ -13,6 +13,7 @@ Too much. This repo is the inverse.
 | Super alone opens the launcher | Super release → `omarchy-menu toggle` (Super+Space still does too) |
 | Alt+F4 closes the window | Added; Super+Q added too (Omarchy 4 only closed on Super+W) |
 | Shift+Insert pastes | Terminal-aware paste (Ctrl+V in GUI) |
+| Super+V clipboard history | Omarchy clipboard overlay (was Super+Ctrl+V) |
 | CapsLock is Caps Lock | Overlay `input.lua` + `config/xkb`; Compose is both Shifts together |
 
 ## From the Cachy overlay (apps, not a desktop rewrite)
@@ -27,7 +28,8 @@ Too much. This repo is the inverse.
 | Google Messages | Super+Shift+Return (was a redundant Browser) |
 | Board Game Arena | Super+Shift+B (was a redundant Browser) |
 | Gmail | Super+Shift+G (was Signal); title-less `--app=URL` like Maps |
-| Webapps on a spare workspace | Opt-in class list in `hypr/windows.lua` → Hyprland `empty` |
+| Google Calendar | Super+Shift+C (was HEY Calendar) |
+| Apps on a spare workspace | Default in `hypr/windows.lua`; terminals and Nautilus stay |
 | LibreOffice | Super+O |
 | Thunderbird | Super+Shift+E; compose is Super+Shift+Alt+E |
 

@@ -8,7 +8,8 @@ Omarchy defaults stay loaded. Every stolen key is unbound first.
 |-----|---------------|---------|--------------|
 | Super (release SUPER_L/R) | unbound | Launcher | Super+Space still launcher |
 | Alt+F4 | unbound | Close window | Super+Q still close |
-| Shift+Insert | unbound | Paste | Super+V still Omarchy paste |
+| Shift+Insert | unbound | Paste | Super+Ctrl+V also universal paste |
+| Super+V | Universal paste | Clipboard manager | Super+Ctrl+V is paste; Super+C/X stay copy/cut |
 | Shift+Delete | unbound | Cut | Super+X still Omarchy cut |
 | Super+W | Close window | Browser | Close is Super+Q + Alt+F4 (Super+Q is added; Omarchy 4 had no Super+Q) |
 | Super+T | Toggle float | VS Code | Float is Super+Alt+T |
@@ -26,6 +27,7 @@ Omarchy defaults stay loaded. Every stolen key is unbound first.
 | Super+Shift+B | Browser | Board Game Arena | Super+W still browser; Super+Shift+Alt+B still private |
 | Super+Shift+Return | Browser | Google Messages | Super+Shift+Ctrl+G still Messages |
 | Super+Shift+G | Signal | Gmail | Super+Shift+E still Thunderbird; WhatsApp is Super+Shift+Alt+G. Focus uses the Chrome app class so Thunderbird `@gmail.com` does not steal it. |
+| Super+Shift+C | HEY Calendar | Google Calendar | Super+C still universal copy |
 | Super+O | Pop window out | LibreOffice | Pop-out is Super+Shift+O |
 | Super+Shift+O | Obsidian, then LibreOffice | Pop window out | LibreOffice is Super+O |
 | CapsLock | Compose (XCompose) | Caps Lock | Compose is both Shifts together |
@@ -34,17 +36,16 @@ Omarchy defaults stay loaded. Every stolen key is unbound first.
 Web apps: title-less `--app=URL` windows via `scripts/launch-webapp.sh`,
 which uses a dedicated Chrome profile at `~/.local/share/delorean/chrome-webapps`.
 Default-profile `--app` windows drop site data when closed. Log in once in
-the new profile; after that BGA/Messages/Gmail/Maps/YouTube Music persist.
+the new profile; after that BGA/Messages/Gmail/Maps/Calendar/YouTube Music persist.
 
-Next empty workspace: new windows whose class is listed in
-`config/hypr/windows.lua` are moved to Hyprland `empty` (first empty
-workspace) on `window.open`. Focusing an already-open app stays put —
-close it first to test. Regular Chrome tabs are not in the list. Overlay
-lua is a symlink; after editing run `hyprctl reload`.
+New windows open on the first empty workspace except utilities (terminals,
+Nautilus, Omarchy TUIs, file pickers, floating dialogs). Edit the stay-put
+class list in `config/hypr/windows.lua`. Overlay lua is a symlink; after
+editing run `hyprctl reload`.
 
 Kept on purpose:
 
-- Super+C / Super+V / Super+X — Omarchy universal clipboard
+- Super+C / Super+X — Omarchy universal copy/cut (paste is Super+Ctrl+V and Shift+Insert)
 - Super+Shift+W — Omawrite (wallpaper is Super+Ctrl+Space)
 - Super+Q, Super+Return, Super+1..0, Super+Tab, Super+F, Super+arrows
 
