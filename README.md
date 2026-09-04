@@ -53,6 +53,8 @@ scripts/apply.sh
 scripts/docker-group.sh
 docs/goals.md
 docs/binds.md
+docs/next.md                            # working list; dump obstacles in os-notes.txt
+os-notes.txt                            # scratch inbox, emptied after triage
 ```
 
 Do not edit `/usr/share/omarchy/`. Do not fork Omarchy.

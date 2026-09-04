@@ -1,0 +1,2 @@
+# Scratch inbox. Dump obstacles here, then hand the file over.
+# Absorbed items live in docs/next.md.
