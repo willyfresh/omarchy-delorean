@@ -9,10 +9,10 @@ were worth keeping from the CachyOS experiment in `~/Projects/cachyos`.
 
 - **Keys:** Super-alone launcher, Super+Q / Alt+F4 close, Shift+Insert paste,
   Super+W browser, Super+T VS Code, Super+E files, Super+Shift+E Thunderbird,
-  Super+L lock, plus a few app launches. Super+arrows walk windows then
-  occupied desks; Shift sends the window; Ctrl swaps on this desk. CapsLock
-  is Caps Lock; both Shifts together start an XCompose sequence. Collision
-  table: [docs/binds.md](docs/binds.md).
+  Super+L lock, plus a few app launches. Super+Tab is Mirador workspace
+  overview. Super+arrows walk windows then occupied desks; Shift sends the
+  window; Ctrl swaps on this desk. CapsLock is Caps Lock; both Shifts
+  together start an XCompose sequence. Collision table: [docs/binds.md](docs/binds.md).
 - **Theme:** `delorean` — flux cyan, time-circuit amber, stainless black.
 
 Everything else is stock Omarchy (ten workspaces, bar, menus, capture, idle).

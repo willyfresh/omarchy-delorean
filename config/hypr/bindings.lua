@@ -149,3 +149,8 @@ hl.unbind("SUPER + O") -- was: pop window out
 hl.unbind("SUPER + SHIFT + O") -- was: Obsidian, then LibreOffice
 o.bind("SUPER + O", "LibreOffice", { launch = "libreoffice" })
 o.bind("SUPER + SHIFT + O", "Pop window out (float & pin)", "omarchy-hyprland-window-pop")
+
+-- Super+Tab was next workspace. Mirador is the workspace overview; Super+Shift+Tab
+-- still goes to the previous occupied desk.
+hl.unbind("SUPER + TAB")
+o.bind("SUPER + TAB", "Workspace overview", "omarchy-shell shell toggle mirador '{}'")
