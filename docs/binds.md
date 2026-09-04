@@ -30,6 +30,10 @@ Omarchy defaults stay loaded. Every stolen key is unbound first.
 | Super+Shift+C | HEY Calendar | Google Calendar | Super+C still universal copy |
 | Super+O | Pop window out | LibreOffice | Pop-out is Super+Shift+O |
 | Super+Shift+O | Obsidian, then LibreOffice | Pop window out | LibreOffice is Super+O |
+| Super+arrows | Focus in that direction | Focus, then occupied workspace at the edge | Super+Tab still jumps desks; left/up = previous, right/down = next |
+| Super+Shift+arrows | Swap window in that direction | Move window to adjacent numbered workspace (1–10, wrap, follow) | Super+Shift+1..0 still jump to a number; in-workspace shuffle is Super+Ctrl+arrows |
+| Super+Ctrl+arrows | Grouped window focus (left/right only) | Swap with neighbor on this workspace | Super+Alt+Tab still cycles a group; Super+G still toggles grouping |
+| Alt+Tab / Alt+Shift+Tab | Cycle next/prev window on this desk | MRU across all regular workspaces; hold Alt and tap Tab; release Alt to stay | No thumbnail overlay (Omarchy does not ship one). Super+Tab stays next workspace — no overview either |
 | CapsLock | Compose (XCompose) | Caps Lock | Compose is both Shifts together |
 | Both Shifts together | Caps Lock (self-clearing) | Compose (Multi_key) | CapsLock is Caps Lock again |
 
@@ -38,10 +42,9 @@ which uses a dedicated Chrome profile at `~/.local/share/delorean/chrome-webapps
 Default-profile `--app` windows drop site data when closed. Log in once in
 the new profile; after that BGA/Messages/Gmail/Maps/Calendar/YouTube Music persist.
 
-New windows open on the first empty workspace except utilities (terminals,
-Nautilus, Omarchy TUIs, file pickers, floating dialogs). Edit the stay-put
-class list in `config/hypr/windows.lua`. Overlay lua is a symlink; after
-editing run `hyprctl reload`.
+New windows tile on the current workspace (stock). Super+1..0 and Super+Tab
+place them. Super+arrows walk windows, then occupied desks. Overlay lua is a
+symlink; after editing run `hyprctl reload`.
 
 Kept on purpose:
 

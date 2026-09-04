@@ -9,8 +9,10 @@ were worth keeping from the CachyOS experiment in `~/Projects/cachyos`.
 
 - **Keys:** Super-alone launcher, Super+Q / Alt+F4 close, Shift+Insert paste,
   Super+W browser, Super+T VS Code, Super+E files, Super+Shift+E Thunderbird,
-  Super+L lock, plus a few app launches. CapsLock is Caps Lock; both Shifts
-  together start an XCompose sequence. Collision table: [docs/binds.md](docs/binds.md).
+  Super+L lock, plus a few app launches. Super+arrows walk windows then
+  occupied desks; Shift sends the window; Ctrl swaps on this desk. CapsLock
+  is Caps Lock; both Shifts together start an XCompose sequence. Collision
+  table: [docs/binds.md](docs/binds.md).
 - **Theme:** `delorean` — flux cyan, time-circuit amber, stainless black.
 
 Everything else is stock Omarchy (ten workspaces, bar, menus, capture, idle).
@@ -38,7 +40,7 @@ after a new login):
 ```
 config/hypr/bindings.lua                 # keybinding overrides
 config/hypr/input.lua                    # CapsLock + both-Shifts Compose
-config/hypr/windows.lua                  # apps open on an empty workspace; utilities stay
+config/hypr/windows.lua                  # Super+arrows focus/move; tile on current workspace
 config/xkb/                              # custom XKB option for Compose
 config/omarchy/plugins/delorean.tray/    # tray: all icons visible, no overflow drawer
 config/applications/                     # --app=URL launchers (no PWA title bar)

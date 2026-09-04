@@ -29,16 +29,24 @@ Too much. This repo is the inverse.
 | Board Game Arena | Super+Shift+B (was a redundant Browser) |
 | Gmail | Super+Shift+G (was Signal); title-less `--app=URL` like Maps |
 | Google Calendar | Super+Shift+C (was HEY Calendar) |
-| Apps on a spare workspace | Default in `hypr/windows.lua`; terminals and Nautilus stay |
 | LibreOffice | Super+O |
 | Thunderbird | Super+Shift+E; compose is Super+Shift+Alt+E |
+| Apps stay on the current workspace | Stock Hyprland tiling. Tried empty-workspace placement; did not keep it |
+
+## From Windows
+
+| Want | How |
+|------|-----|
+| Super+arrows walk windows, then the next desk | Edge of the workspace → previous (left/up) or next (right/down) occupied workspace. Super+Tab still jumps. |
+| Super+Shift+arrows move the window between desks | Adjacent numbered workspace, 1–10, wrap, follow. Super+Shift+1..0 still target a number. |
+| Super+Ctrl+arrows rearrange on this desk | Swap with the neighbor. Group cycle stays Super+Alt+Tab. |
+| Alt+Tab as on Windows | MRU across desks, hold Alt to walk, release to stay. No thumbnail strip. |
 
 ## Already Omarchy — do not reimplement
 
 Ten workspaces on Super+1..0, Super+Tab workspace cycle, Super+Q close,
 Super+Return terminal, Super+S scratchpad (Super+Shift+S parks a window),
-Super+F fullscreen, Super+arrows focus, workspace 10 labeled 0 on the bar,
-bar pins 1–5.
+Super+F fullscreen, workspace 10 labeled 0 on the bar, bar pins 1–5.
 
 ## Look
 
