@@ -3,9 +3,6 @@
 North star: keep Omarchy, overlay KDE habits plus a few app keys, and a
 DeLorean theme. Not a distro fork.
 
-`~/Projects/cachyos` was the previous attempt (rebuild Omarchy on CachyOS).
-Too much. This repo is the inverse.
-
 ## From KDE
 
 | Want | How |
@@ -16,7 +13,7 @@ Too much. This repo is the inverse.
 | Super+V clipboard history | Omarchy clipboard overlay (was Super+Ctrl+V) |
 | CapsLock is Caps Lock | Overlay `input.lua` + `config/xkb`; Compose is both Shifts together |
 
-## From the Cachy overlay (apps, not a desktop rewrite)
+## App keys
 
 | Want | How |
 |------|-----|
@@ -58,7 +55,7 @@ Custom Omarchy theme `delorean`: flux cyan `#5AD4FF`, time-circuit amber
 ## Out of scope until we say so
 
 - Cloning `omarchy.workspaces` to pin 1–4 instead of 1–5
-- Extra hotkeys from the Cachy “feasible” list
+- Extra hotkeys we have not asked for
 - Branding ASCII, monitor/dock profiles, NVIDIA/PRIME
 - Super+C / Super+V / Super+X (keep Omarchy clipboard; calculator stays Super+Ctrl+Q)
 - Super+Shift+W wallpaper (keep Omawrite; Super+Ctrl+Space cycles backgrounds)

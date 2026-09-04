@@ -60,7 +60,7 @@ o.bind("SUPER + V", "Clipboard manager", "omarchy-shell shell toggle omarchy.cli
 o.bind("SUPER + CTRL + V", "Universal paste", universal_clipboard_shortcut("CTRL", "V", "SHIFT", "Insert"))
 
 -- Super+W was the only stock close chord in Omarchy 4. Browser takes Super+W;
--- Super+Q is the close we actually want (same as the Cachy overlay). Alt+F4 too.
+-- Super+Q is the close we actually want. Alt+F4 too.
 hl.unbind("SUPER + W")
 o.bind("SUPER + W", "Browser", { omarchy = "browser" })
 o.bind("SUPER + Q", "Close window", hl.dsp.window.close())
@@ -82,7 +82,7 @@ o.bind("SUPER + SHIFT + E", "Thunderbird", { launch = "thunderbird", focus = "th
 hl.unbind("SUPER + SHIFT + ALT + E")
 o.bind("SUPER + SHIFT + ALT + E", "New Thunderbird message", { launch = "thunderbird -compose" })
 
--- Swap lock and workspace-layout with Cachy/KDE Super+L = lock.
+-- Swap lock and workspace-layout with KDE Super+L = lock.
 hl.unbind("SUPER + L")
 hl.unbind("SUPER + CTRL + L")
 o.bind("SUPER + L", "Lock system", "omarchy-system-lock")

@@ -2,8 +2,7 @@
 
 Personal Omarchy overlay for this machine (`DeLorean`, ThinkPad P50).
 
-Omarchy stays the desktop. This repo is only the muscle memory and look that
-were worth keeping from the CachyOS experiment in `~/Projects/cachyos`.
+Omarchy stays the desktop. This repo is the muscle memory and look on top.
 
 ## What it changes
 
@@ -63,8 +62,3 @@ os-notes.txt                            # scratch inbox, emptied after triage
 ```
 
 Do not edit `/usr/share/omarchy/`. Do not fork Omarchy.
-
-## Source material
-
-`~/Projects/cachyos` is the archive of the CachyOS + Noctalia attempt. Leave it
-alone. Goals and binds here are the distilled version for an Omarchy host.
