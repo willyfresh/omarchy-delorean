@@ -6,4 +6,4 @@ Terminal=false
 Type=Application
 Icon=google-maps
 StartupNotify=true
-StartupWMClass=chrome-maps.google.com-Delorean
+StartupWMClass=chrome-maps.google.com-Default

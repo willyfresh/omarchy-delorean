@@ -6,4 +6,4 @@ Terminal=false
 Type=Application
 Icon=chrome-cinhimbnkkaeohfgghhklpknlkffjgod-Default
 StartupNotify=true
-StartupWMClass=chrome-music.youtube.com-Delorean
+StartupWMClass=chrome-music.youtube.com-Default

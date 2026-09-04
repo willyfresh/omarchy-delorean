@@ -31,6 +31,7 @@ Omarchy defaults stay loaded. Every stolen key is unbound first.
 | Super+O | Pop window out | LibreOffice | Pop-out is Super+Shift+O |
 | Super+Shift+O | Obsidian, then LibreOffice | Pop window out | LibreOffice is Super+O |
 | Super+Tab | Next workspace | Mirador workspace overview | Super+Shift+Tab still previous desk; Super+Ctrl+Tab still former desk |
+| Super+period | unbound | Toggle clickpad | Stick and its three buttons stay. Super+Ctrl+period is still Transcode |
 | Super+arrows | Focus in that direction | Focus, then occupied workspace at the edge | Super+Tab is overview now; left/up = previous occupied desk, right/down = next |
 | Super+Shift+arrows | Swap window in that direction | Move window to adjacent numbered workspace (1–10, wrap, follow) | Super+Shift+1..0 still jump to a number; in-workspace shuffle is Super+Ctrl+arrows |
 | Super+Ctrl+arrows | Grouped window focus (left/right only) | Swap with neighbor on this workspace | Super+Alt+Tab still cycles a group; Super+G still toggles grouping |
@@ -39,9 +40,10 @@ Omarchy defaults stay loaded. Every stolen key is unbound first.
 | Both Shifts together | Caps Lock (self-clearing) | Compose (Multi_key) | CapsLock is Caps Lock again |
 
 Web apps: title-less `--app=URL` windows via `scripts/launch-webapp.sh`,
-which uses a dedicated Chrome profile at `~/.local/share/delorean/chrome-webapps`.
-Default-profile `--app` windows drop site data when closed. Log in once in
-the new profile; after that BGA/Messages/Gmail/Maps/Calendar/YouTube Music persist.
+which uses a dedicated Chrome at `~/.local/share/delorean/chrome-webapps`
+with a single signed-in Default profile. Main Chrome `--app` windows still
+drop site data when closed. Links out of Messages should stay in that
+signed-in session.
 
 New windows tile on the current workspace (stock). Super+1..0 jump to a
 numbered desk; Super+Tab opens Mirador. Super+arrows walk windows, then

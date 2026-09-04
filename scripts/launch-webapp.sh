@@ -34,11 +34,13 @@ if [[ -z $bin ]]; then
   exit 1
 fi
 
-# Profile name becomes the window-class suffix (chrome-*.Delorean) so
-# launch-or-focus does not raise leftover Default-profile --app windows.
+# Default in this user-data-dir is the signed-in webapp session (collapsed
+# from a second "Delorean" profile). Links out of --app windows open here.
+# Window class suffix is chrome-*.Default — distinct from Super+W Chrome
+# because this is a different user-data-dir.
 exec setsid "$bin" \
   --user-data-dir="$profile" \
-  --profile-directory=Delorean \
+  --profile-directory=Default \
   --no-first-run \
   --no-default-browser-check \
   --hide-crash-restore-bubble \

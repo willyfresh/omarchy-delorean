@@ -6,4 +6,4 @@ Terminal=false
 Type=Application
 Icon=chrome-pogkokppkghfaeboimdkfifmcmlhngnl-Default
 StartupNotify=true
-StartupWMClass=chrome-boardgamearena.com-Delorean
+StartupWMClass=chrome-boardgamearena.com-Default

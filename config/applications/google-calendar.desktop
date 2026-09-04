@@ -6,4 +6,4 @@ Terminal=false
 Type=Application
 Icon=x-office-calendar
 StartupNotify=true
-StartupWMClass=chrome-calendar.google.com-Delorean
+StartupWMClass=chrome-calendar.google.com-Default

@@ -110,30 +110,30 @@ o.bind("SUPER + S", "Toggle scratchpad", toggle_scratchpad)
 hl.unbind("SUPER + SHIFT + S") -- was: Google Maps
 o.bind("SUPER + SHIFT + S", "Move window to scratchpad", hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
 hl.unbind("SUPER + SHIFT + M") -- was: Music (Spotify)
-o.bind("SUPER + SHIFT + M", "Google Maps", webapp .. " chrome-maps.google.com.*Delorean https://maps.google.com/")
-o.bind("SUPER + M", "YouTube Music", webapp .. " chrome-music.youtube.com.*Delorean https://music.youtube.com/")
+o.bind("SUPER + SHIFT + M", "Google Maps", webapp .. " chrome-maps.google.com.*Default https://maps.google.com/")
+o.bind("SUPER + M", "YouTube Music", webapp .. " chrome-music.youtube.com.*Default https://music.youtube.com/")
 
 -- Super+Shift+B was a second Browser (Super+W still opens Chrome). BGA takes
 -- it. Super+Shift+Alt+B stays private browser.
 hl.unbind("SUPER + SHIFT + B") -- was: Browser
-o.bind("SUPER + SHIFT + B", "Board Game Arena", webapp .. " chrome-boardgamearena.com.*Delorean https://boardgamearena.com/")
+o.bind("SUPER + SHIFT + B", "Board Game Arena", webapp .. " chrome-boardgamearena.com.*Default https://boardgamearena.com/")
 
 -- Super+Shift+Return was a third Browser. Google Messages takes it.
 hl.unbind("SUPER + SHIFT + RETURN") -- was: Browser
-o.bind("SUPER + SHIFT + RETURN", "Google Messages", webapp .. " chrome-messages.google.com.*Delorean https://messages.google.com/web/conversations")
+o.bind("SUPER + SHIFT + RETURN", "Google Messages", webapp .. " chrome-messages.google.com.*Default https://messages.google.com/web/conversations")
 hl.unbind("SUPER + SHIFT + CTRL + G") -- was: Google Messages (stock, Default-profile --app)
-o.bind("SUPER + SHIFT + CTRL + G", "Google Messages", webapp .. " chrome-messages.google.com.*Delorean https://messages.google.com/web/conversations")
+o.bind("SUPER + SHIFT + CTRL + G", "Google Messages", webapp .. " chrome-messages.google.com.*Default https://messages.google.com/web/conversations")
 
 -- Super+Shift+G was Signal. Gmail takes it (title-less --app=URL). Super+Shift+E
 -- stays Thunderbird; Super+Shift+Alt+G stays WhatsApp.
 -- Focus by Chrome app class, not the label "Gmail": launch-or-focus matches
 -- titles too, and Thunderbird's "willyfresh@gmail.com" has a \bGmail\b hit.
 hl.unbind("SUPER + SHIFT + G") -- was: Signal
-o.bind("SUPER + SHIFT + G", "Gmail", webapp .. " chrome-mail.google.com.*Delorean https://mail.google.com/")
+o.bind("SUPER + SHIFT + G", "Gmail", webapp .. " chrome-mail.google.com.*Default https://mail.google.com/")
 
 -- Super+Shift+C was HEY Calendar. Super+C stays Omarchy clipboard.
 hl.unbind("SUPER + SHIFT + C") -- was: HEY Calendar
-o.bind("SUPER + SHIFT + C", "Google Calendar", webapp .. " chrome-calendar.google.com.*Delorean https://calendar.google.com/")
+o.bind("SUPER + SHIFT + C", "Google Calendar", webapp .. " chrome-calendar.google.com.*Default https://calendar.google.com/")
 
 -- Super+D was the Discord webapp (logged out on close). Native client now.
 -- Do not use launch-or-focus on class discord: the updater splash matches
@@ -154,3 +154,7 @@ o.bind("SUPER + SHIFT + O", "Pop window out (float & pin)", "omarchy-hyprland-wi
 -- still goes to the previous occupied desk.
 hl.unbind("SUPER + TAB")
 o.bind("SUPER + TAB", "Workspace overview", "omarchy-shell shell toggle mirador '{}'")
+
+-- Super+period toggles the clickpad; the stick and its three buttons stay.
+-- Super+Ctrl+period remains Transcode. xkbcommon names the key "period".
+o.bind("SUPER + period", "Toggle trackpad", os.getenv("HOME") .. "/Projects/delorean/scripts/toggle-trackpad.sh")

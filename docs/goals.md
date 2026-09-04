@@ -42,6 +42,7 @@ Too much. This repo is the inverse.
 | Super+Ctrl+arrows rearrange on this desk | Swap with the neighbor. Group cycle stays Super+Alt+Tab. |
 | Alt+Tab as on Windows | MRU across desks, hold Alt to walk, release to stay. No thumbnail strip. |
 | Super+Tab overview | Mirador plugin (`omarchy plugin add` of sanjyay/Mirador). Super+Shift+Tab still previous desk. |
+| Super+period toggles the clickpad | `scripts/toggle-trackpad.sh` disables `synaptics-tm3149-002`. Stick and its three buttons stay. |
 
 ## Already Omarchy — do not reimplement
 

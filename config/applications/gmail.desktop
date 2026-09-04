@@ -6,4 +6,4 @@ Terminal=false
 Type=Application
 Icon=mail-client
 StartupNotify=true
-StartupWMClass=chrome-mail.google.com-Delorean
+StartupWMClass=chrome-mail.google.com-Default
