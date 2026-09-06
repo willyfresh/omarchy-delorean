@@ -10,8 +10,9 @@ Omarchy stays the desktop. This repo is the muscle memory and look on top.
   Super+W browser, Super+T VS Code, Super+E files, Super+Shift+E Thunderbird,
   Super+L lock, plus a few app launches. Super+Tab is Mirador workspace
   overview. Super+period toggles the clickpad (stick stays). Super+arrows
-  walk windows then occupied desks; Shift sends the window; Ctrl swaps on
-  this desk. CapsLock is Caps Lock; both Shifts together start an XCompose
+  walk windows then occupied desks (Left/Right stay on this desk; Shift+Up/Down
+  send+follow to numbered desks; Shift+Left/Right swap on this desk). Ctrl
+  swaps too. CapsLock is Caps Lock; both Shifts together start an XCompose
   sequence. Collision table: [docs/binds.md](docs/binds.md).
 - **Theme:** `delorean` — flux cyan, time-circuit amber, stainless black.
 - **Layout:** Hyprland scrolling windows (niri-like columns). Super+Ctrl+L

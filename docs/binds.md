@@ -33,8 +33,10 @@ stolen key is unbound first.
 | Super+Shift+O | Obsidian, then LibreOffice | Pop window out | LibreOffice is Super+O |
 | Super+Tab | Next workspace | Mirador workspace overview | Super+Shift+Tab still previous desk; Super+Ctrl+Tab still former desk |
 | Super+period | unbound | Toggle clickpad | Stick and its three buttons stay. Super+Ctrl+period is still Transcode |
-| Super+arrows | Focus in that direction | Focus, then occupied workspace at the edge | Super+Tab is overview now; left/up = previous occupied desk, right/down = next |
-| Super+Shift+arrows | Swap window in that direction | Move window to adjacent numbered workspace (1–10, wrap, follow) | Super+Shift+1..0 still jump to a number; in-workspace shuffle is Super+Ctrl+arrows |
+| Super+Left/Right | Focus in that direction, then occupied workspace at the edge | Focus on this workspace only | Super+Up/Down still hop desks at the edge; Super+Tab is overview |
+| Super+Shift+Up/Down | Swap window up/down | Move window to adjacent numbered workspace (1–10, wrap, follow) | Was Super+Shift+Left/Right. Super+Shift+1..0 still jump to a number |
+| Super+Shift+Left/Right | Move window to adjacent numbered workspace | Swap with neighbor on this workspace | Workspace send moved to Super+Shift+Up/Down; Super+Ctrl+arrows still swap too |
+| Super+/- | Expand/shrink the left edge (Plus = shrink) | This column/window thinner (Minus) or wider (Plus) | Far-right Plus uses colresize / grow-left. Alt = a little, Ctrl = a lot. Shift still height |
 | Super+Ctrl+arrows | Grouped window focus (left/right only) | Swap with neighbor on this workspace | Super+Alt+Tab still cycles a group; Super+G still toggles grouping |
 | Alt+Tab / Alt+Shift+Tab | Cycle next/prev window on this desk | MRU across all regular workspaces; hold Alt and tap Tab; release Alt to stay | No thumbnail overlay. Super+Tab is Mirador |
 | CapsLock | Compose (XCompose) | Caps Lock | Compose is both Shifts together |
@@ -49,8 +51,11 @@ signed-in session.
 New windows stay on the current workspace. The default layout is Hyprland
 scrolling (side-scrolling columns); Super+Ctrl+L still toggles this desk
 to dwindle. Super+1..0 jump to a numbered desk; Super+Tab opens Mirador.
-Super+arrows walk windows, then occupied desks. Overlay lua is a symlink;
-after editing run `hyprctl reload`.
+Super+Left/Right walk columns on this desk; Super+Up/Down walk windows,
+then occupied desks. Super+Shift+Up/Down take the window to the adjacent
+numbered desk; Super+Shift+Left/Right swap on this desk.
+Super+/- is this window thinner/wider. Overlay lua is a symlink; after
+editing run `hyprctl reload`.
 
 Kept on purpose:
 

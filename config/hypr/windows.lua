@@ -1,7 +1,10 @@
--- Super+arrows: focus in that direction on this workspace; at the edge,
--- go to the previous (left/up) or next (right/down) occupied workspace.
--- Super+Shift+arrows: take the window to the adjacent numbered workspace (1–10, wrap).
+-- Super+Left/Right: focus columns on this workspace only.
+-- Super+Up/Down: focus in that direction; at the edge, previous (up) or
+-- next (down) occupied workspace.
+-- Super+Shift+Up/Down: take the window to the adjacent numbered workspace (1–10, wrap, follow).
+-- Super+Shift+Left/Right: swap with the neighbor on this workspace.
 -- Super+Ctrl+arrows: swap with the neighbor on this workspace.
+-- Super+/-: this column/window thinner (minus) or wider (plus).
 --
 -- Overlay lua is a symlink; after editing run: hyprctl reload
 
@@ -88,6 +91,11 @@ local function focus_or_workspace(dir)
     return
   end
 
+  -- Super+Left/Right stay on this workspace, even at the edge.
+  if dir == "l" or dir == "r" then
+    return
+  end
+
   local ws = hl.get_active_workspace()
   if ws and ws.special then
     return
@@ -119,12 +127,20 @@ for dir, spec in pairs(arrow) do
   hl.unbind("SUPER + SHIFT + " .. key)
   hl.unbind("SUPER + CTRL + " .. key)
 
-  o.bind("SUPER + " .. key, "Focus " .. key:lower() .. " or next workspace", function()
+  local focus_label = (dir == "l" or dir == "r") and ("Focus " .. key:lower())
+    or ("Focus " .. key:lower() .. " or next workspace")
+  o.bind("SUPER + " .. key, focus_label, function()
     focus_or_workspace(dir)
   end, { repeating = true })
-  o.bind("SUPER + SHIFT + " .. key, "Move window to adjacent workspace", function()
-    move_to_adjacent_workspace(dir)
-  end)
+  if dir == "u" or dir == "d" then
+    o.bind("SUPER + SHIFT + " .. key, "Move window to adjacent workspace", function()
+      move_to_adjacent_workspace(dir)
+    end)
+  else
+    o.bind("SUPER + SHIFT + " .. key, "Swap window " .. key:lower(), function()
+      swap_in_workspace(dir)
+    end)
+  end
   o.bind("SUPER + CTRL + " .. key, "Swap window " .. key:lower(), function()
     swap_in_workspace(dir)
   end)
@@ -213,3 +229,90 @@ o.bind("ALT + SHIFT + TAB", "Previous window (MRU)", function()
 end, { repeating = true })
 o.bind("ALT + Alt_L", "End window switcher", alttab_end, { release = true, transparent = true })
 o.bind("ALT + Alt_R", "End window switcher", alttab_end, { release = true, transparent = true })
+
+-- Super+/-: this column/window thinner or wider. Stock Omarchy resizes the
+-- left edge (Minus = expand left, Equal = shrink left), so Super+Plus on a
+-- far-right window does nothing useful. Scrolling uses colresize; dwindle
+-- / float probes both edges so a rightmost window can still grow left.
+local function window_width(address)
+  local window = hl.get_window("address:" .. address)
+  if not window then
+    return nil
+  end
+  local w = vec(window.size)
+  return w
+end
+
+local function adjust_width(frac, px)
+  local active = hl.get_active_window()
+  if not active then
+    return
+  end
+
+  local ws = hl.get_active_special_workspace() or hl.get_active_workspace()
+  if not active.floating and ws and ws.tiled_layout == "scrolling" then
+    local msg = frac > 0 and ("colresize +" .. frac) or ("colresize " .. frac)
+    hl.dispatch(hl.dsp.layout(msg))
+    return
+  end
+
+  local address = active.address
+  local start = window_width(address)
+  if not start then
+    return
+  end
+
+  local want_wider = px > 0
+  local mag = math.abs(px)
+  for _, probe in ipairs({ mag, -mag }) do
+    hl.dispatch(hl.dsp.window.resize({ x = probe, y = 0, relative = true }))
+    local now = window_width(address)
+    if not now then
+      return
+    end
+    local grew = now - start
+    if want_wider and grew > 1 then
+      return
+    end
+    if not want_wider and grew < -1 then
+      return
+    end
+    hl.dispatch(hl.dsp.window.resize({ x = -probe, y = 0, relative = true }))
+  end
+end
+
+for _, chord in ipairs({
+  "SUPER + MINUS",
+  "SUPER + EQUAL",
+  "SUPER + code:20",
+  "SUPER + code:21",
+  "SUPER + ALT + MINUS",
+  "SUPER + ALT + EQUAL",
+  "SUPER + ALT + code:20",
+  "SUPER + ALT + code:21",
+  "SUPER + CTRL + MINUS",
+  "SUPER + CTRL + EQUAL",
+  "SUPER + CTRL + code:20",
+  "SUPER + CTRL + code:21",
+}) do
+  hl.unbind(chord)
+end
+
+o.bind("SUPER + MINUS", "Make window thinner", function()
+  adjust_width(-0.1, -100)
+end, { repeating = true })
+o.bind("SUPER + EQUAL", "Make window wider", function()
+  adjust_width(0.1, 100)
+end, { repeating = true })
+o.bind("SUPER + ALT + MINUS", "Make window a little thinner", function()
+  adjust_width(-0.05, -25)
+end, { repeating = true })
+o.bind("SUPER + ALT + EQUAL", "Make window a little wider", function()
+  adjust_width(0.05, 25)
+end, { repeating = true })
+o.bind("SUPER + CTRL + MINUS", "Make window a lot thinner", function()
+  adjust_width(-0.2, -300)
+end, { repeating = true })
+o.bind("SUPER + CTRL + EQUAL", "Make window a lot wider", function()
+  adjust_width(0.2, 300)
+end, { repeating = true })

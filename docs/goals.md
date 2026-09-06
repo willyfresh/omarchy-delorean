@@ -35,8 +35,10 @@ DeLorean theme. Not a distro fork.
 
 | Want | How |
 |------|-----|
-| Super+arrows walk windows, then the next desk | Edge of the workspace → previous (left/up) or next (right/down) occupied workspace. Super+Tab is overview. |
-| Super+Shift+arrows move the window between desks | Adjacent numbered workspace, 1–10, wrap, follow. Super+Shift+1..0 still target a number. |
+| Super+Left/Right stay on this desk | Focus columns only. Do not change workspace. |
+| Super+Up/Down walk windows, then the next desk | Edge of the column → previous (up) or next (down) occupied workspace. Super+Tab is overview. |
+| Super+Shift+Up/Down send+follow to p/n desk | Adjacent numbered workspace, 1–10, wrap, follow (was Super+Shift+Left/Right). Super+Shift+1..0 still target a number. |
+| Super+/- make this window thinner/wider | Scrolling `colresize`; far-right windows grow left instead of no-op. |
 | Super+Ctrl+arrows rearrange on this desk | Swap with the neighbor. Group cycle stays Super+Alt+Tab. |
 | Alt+Tab as on Windows | MRU across desks, hold Alt to walk, release to stay. No thumbnail strip. |
 | Super+Tab overview | Mirador plugin (`omarchy plugin add` of sanjyay/Mirador). Super+Shift+Tab still previous desk. |
