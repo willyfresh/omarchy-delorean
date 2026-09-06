@@ -14,6 +14,8 @@ Omarchy stays the desktop. This repo is the muscle memory and look on top.
   this desk. CapsLock is Caps Lock; both Shifts together start an XCompose
   sequence. Collision table: [docs/binds.md](docs/binds.md).
 - **Theme:** `delorean` — flux cyan, time-circuit amber, stainless black.
+- **Layout:** Hyprland scrolling windows (niri-like columns). Super+Ctrl+L
+  still toggles this desk to dwindle.
 
 Everything else is stock Omarchy (ten workspaces, bar, menus, capture, idle).
 Install extra software with `omarchy pkg add` / `omarchy install` when you want it.
@@ -25,8 +27,9 @@ Install extra software with `omarchy pkg add` / `omarchy install` when you want 
 ```
 
 That symlinks this repo into `~/.config/hypr/bindings.lua`,
-`~/.config/hypr/input.lua`, `~/.config/xkb`, and
-`~/.config/omarchy/themes/delorean`, reloads Hyprland, and sets the theme.
+`~/.config/hypr/input.lua`, `~/.config/hypr/looknfeel.lua`,
+`~/.config/xkb`, and `~/.config/omarchy/themes/delorean`, reloads
+Hyprland, and sets the theme.
 
 Add this account to the docker group (sudo in a real terminal; takes effect
 after a new login):
@@ -40,6 +43,7 @@ after a new login):
 ```
 config/hypr/bindings.lua                 # keybinding overrides
 config/hypr/input.lua                    # CapsLock + both-Shifts Compose
+config/hypr/looknfeel.lua                # scrolling windows by default
 config/hypr/windows.lua                  # Super+arrows focus/move; tile on current workspace
 config/xkb/                              # custom XKB option for Compose
 config/omarchy/plugins/delorean.tray/    # tray: all icons visible, no overflow drawer

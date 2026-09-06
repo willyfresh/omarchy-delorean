@@ -1,8 +1,9 @@
 # Bind overlay
 
-User files: `config/hypr/bindings.lua` and `config/hypr/input.lua`
-(plus `config/xkb` for the Compose option) → the matching paths under `~/.config`.
-Omarchy defaults stay loaded. Every stolen key is unbound first.
+User files: `config/hypr/bindings.lua`, `config/hypr/input.lua`, and
+`config/hypr/looknfeel.lua` (plus `config/xkb` for the Compose option) →
+the matching paths under `~/.config`. Omarchy defaults stay loaded. Every
+stolen key is unbound first.
 
 | Key | Was (Omarchy) | Becomes | Displacement |
 |-----|---------------|---------|--------------|
@@ -17,7 +18,7 @@ Omarchy defaults stay loaded. Every stolen key is unbound first.
 | Super+Shift+E | HEY Email | Thunderbird | Super+R stays unbound |
 | Super+Shift+Alt+E | HEY new message | Thunderbird compose | `thunderbird -compose` |
 | Super+L | Toggle workspace layout | Lock | Layout is Super+Ctrl+L |
-| Super+Ctrl+L | Lock | Toggle workspace layout | swapped with Super+L |
+| Super+Ctrl+L | Lock | Toggle workspace layout | swapped with Super+L; default is scrolling, toggle is dwindle |
 | Super+D | unbound | Discord (native client) | Super+Shift+D is Docker TUI; webapp logged out on close |
 | Super+Shift+D | LazyDocker, then Discord | Docker TUI (stock) | Discord moved to Super+D |
 | Super+S | Toggle scratchpad | Same, but notify if empty | Super+Shift+S parks a window |
@@ -45,9 +46,11 @@ with a single signed-in Default profile. Main Chrome `--app` windows still
 drop site data when closed. Links out of Messages should stay in that
 signed-in session.
 
-New windows tile on the current workspace (stock). Super+1..0 jump to a
-numbered desk; Super+Tab opens Mirador. Super+arrows walk windows, then
-occupied desks. Overlay lua is a symlink; after editing run `hyprctl reload`.
+New windows stay on the current workspace. The default layout is Hyprland
+scrolling (side-scrolling columns); Super+Ctrl+L still toggles this desk
+to dwindle. Super+1..0 jump to a numbered desk; Super+Tab opens Mirador.
+Super+arrows walk windows, then occupied desks. Overlay lua is a symlink;
+after editing run `hyprctl reload`.
 
 Kept on purpose:
 

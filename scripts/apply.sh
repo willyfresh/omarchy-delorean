@@ -40,6 +40,7 @@ link() {
 
 link "$ROOT/config/hypr/bindings.lua" "$HOME/.config/hypr/bindings.lua"
 link "$ROOT/config/hypr/input.lua" "$HOME/.config/hypr/input.lua"
+link "$ROOT/config/hypr/looknfeel.lua" "$HOME/.config/hypr/looknfeel.lua"
 link "$ROOT/config/hypr/windows.lua" "$HOME/.config/hypr/windows.lua"
 link "$ROOT/config/xkb" "$HOME/.config/xkb"
 link "$ROOT/config/omarchy/themes/delorean" "$HOME/.config/omarchy/themes/delorean"

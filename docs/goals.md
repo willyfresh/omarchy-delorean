@@ -28,7 +28,8 @@ DeLorean theme. Not a distro fork.
 | Google Calendar | Super+Shift+C (was HEY Calendar) |
 | LibreOffice | Super+O |
 | Thunderbird | Super+Shift+E; compose is Super+Shift+Alt+E |
-| Apps stay on the current workspace | Stock Hyprland tiling. Tried empty-workspace placement; did not keep it |
+| Apps stay on the current workspace | New windows stay on this desk. Tried empty-workspace placement; did not keep it |
+| Scrolling windows | Default layout is Hyprland scrolling (niri-like columns). Super+Ctrl+L still toggles this desk to dwindle |
 
 ## From Windows
 
