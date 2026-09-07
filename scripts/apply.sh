@@ -45,6 +45,34 @@ link "$ROOT/config/hypr/windows.lua" "$HOME/.config/hypr/windows.lua"
 link "$ROOT/config/xkb" "$HOME/.config/xkb"
 link "$ROOT/config/omarchy/themes/delorean" "$HOME/.config/omarchy/themes/delorean"
 link "$ROOT/config/omarchy/plugins/delorean.tray" "$HOME/.config/omarchy/plugins/delorean.tray"
+link "$ROOT/config/omarchy/plugins/delorean.clock" "$HOME/.config/omarchy/plugins/delorean.clock"
+
+# Prefer the Delorean clock (higher-contrast date/time) over stock.
+shell_json="$HOME/.config/omarchy/shell.json"
+if [[ -f $shell_json ]] && command -v python3 >/dev/null 2>&1; then
+  python3 - "$shell_json" <<'PY'
+import json, sys
+path = sys.argv[1]
+with open(path) as f:
+    data = json.load(f)
+bar = data.setdefault("bar", {})
+changed = False
+if bar.get("centerAnchor") == "omarchy.clock":
+    bar["centerAnchor"] = "delorean.clock"
+    changed = True
+for entries in (bar.get("layout") or {}).values():
+    if not isinstance(entries, list):
+        continue
+    for entry in entries:
+        if isinstance(entry, dict) and entry.get("id") == "omarchy.clock":
+            entry["id"] = "delorean.clock"
+            changed = True
+if changed:
+    with open(path, "w") as f:
+        json.dump(data, f, indent=2)
+        f.write("\n")
+PY
+fi
 
 # Chrome PWAs (--app-id) draw a CSD title bar. Maps/Messages use --app=URL
 # via omarchy-launch-webapp instead. Copy (do not symlink) over Chrome's

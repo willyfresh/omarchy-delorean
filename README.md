@@ -48,6 +48,7 @@ config/hypr/looknfeel.lua                # scrolling windows by default
 config/hypr/windows.lua                  # Super+arrows focus/move; tile on current workspace
 config/xkb/                              # custom XKB option for Compose
 config/omarchy/plugins/delorean.tray/    # tray: all icons visible, no overflow drawer
+config/omarchy/plugins/delorean.clock/   # date/time: white, demibold, dark outline
 config/applications/                     # --app=URL launchers (no PWA title bar)
 config/omarchy/themes/delorean/          # custom Omarchy theme
   backgrounds/                           # wallpapers, kept in git

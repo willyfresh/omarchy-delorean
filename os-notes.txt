@@ -1,2 +1,4 @@
 # Scratch inbox. Dump obstacles here, then hand the file over.
 # Absorbed items live in docs/next.md.
+focus follows mouse to web app but not to grokbot. why?
+instead of bolder numbers, let's give it a solid 90% opaque bg.

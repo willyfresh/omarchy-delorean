@@ -53,7 +53,8 @@ Super+F fullscreen, workspace 10 labeled 0 on the bar, bar pins 1–5.
 ## Look
 
 Custom Omarchy theme `delorean`: flux cyan `#5AD4FF`, time-circuit amber
-`#FFB000`, taillight red `#E53935`, stainless black `#0A0C0E`.
+`#FFB000`, taillight red `#E53935`, stainless black `#0A0C0E`. Bar date/time
+is white demibold with a dark outline so it reads on the transparent bar.
 
 ## Out of scope until we say so
 
