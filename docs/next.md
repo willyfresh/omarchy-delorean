@@ -8,6 +8,7 @@ list. Done items move into `goals.md` / `binds.md` and come off this page.
 |------|-----|--------|
 | Messages links open a logged-in Chrome | you confirm | waiting: click a link in Messages |
 | Bitwarden: try the desktop app | you (login); agent can `pkg add` | you |
+| Super+F maximize (match Novalis) | you confirm (`hyprctl reload`) | applied 2026-09-08 |
 
 ## Messages links open a logged-in Chrome
 
@@ -34,3 +35,11 @@ browser integration, and see if the extension stops being weird.
 
 More "OS-shaped" and optional: `rbw` (CLI). Skip unless the desktop app
 is also annoying. Omarchy's 1Password installer is unrelated.
+
+## Super+F maximize (match Novalis)
+
+Applied 2026-09-08. Super+F is
+`hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" })`.
+Novalis Super+F is `maximize-column`. Super+Ctrl+F stays windowed
+fullscreen; Super+Alt+F stays full width; Super+Shift+F stays files.
+Run `hyprctl reload` on this machine to pick it up.

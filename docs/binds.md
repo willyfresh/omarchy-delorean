@@ -14,6 +14,7 @@ stolen key is unbound first.
 | Shift+Delete | unbound | Cut | Super+X still Omarchy cut |
 | Super+W | Close window | Browser | Close is Super+Q + Alt+F4 (Super+Q is added; Omarchy 4 had no Super+Q) |
 | Super+T | Toggle float | VS Code | Float is Super+Alt+T |
+| Super+F | Full screen | Maximize window | Super+Ctrl+F stays windowed fullscreen; Super+Alt+F stays full width; Super+Shift+F stays files |
 | Super+E | unbound | File manager | Super+Shift+F stays |
 | Super+Shift+E | HEY Email | Thunderbird | Super+R stays unbound |
 | Super+Shift+Alt+E | HEY new message | Thunderbird compose | `thunderbird -compose` |
@@ -61,7 +62,7 @@ Kept on purpose:
 
 - Super+C / Super+X — Omarchy universal copy/cut (paste is Super+Ctrl+V and Shift+Insert)
 - Super+Shift+W — Omawrite (wallpaper is Super+Ctrl+Space)
-- Super+Q, Super+Return, Super+1..0, Super+Shift+Tab, Super+F, Super+arrows
+- Super+Q, Super+Return, Super+1..0, Super+Shift+Tab, Super+arrows
 
 Scratchpad: Super+Shift+S (and Super+Alt+S) send the focused window to a
 hidden workspace (`special:scratchpad`). Super+S slides that workspace

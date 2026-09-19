@@ -70,6 +70,12 @@ hl.unbind("SUPER + T")
 o.bind("SUPER + T", "VS Code", { launch = "code", focus = "^[Cc]ode$" })
 o.bind("SUPER + ALT + T", "Toggle window floating/tiling", hl.dsp.window.float({ action = "toggle" }))
 
+-- Super+F was Omarchy exclusive fullscreen. Maximize matches Novalis
+-- Super+F (maximize-column). Super+Ctrl+F stays windowed fullscreen;
+-- Super+Alt+F stays full width; Super+Shift+F stays files.
+hl.unbind("SUPER + F")
+o.bind("SUPER + F", "Maximize window", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
+
 -- Super+E is free in stock Omarchy. Super+Shift+F still opens files too.
 o.bind("SUPER + E", "File manager", { omarchy = "nautilus" })
 

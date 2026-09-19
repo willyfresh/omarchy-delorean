@@ -48,7 +48,7 @@ DeLorean theme. Not a distro fork.
 
 Ten workspaces on Super+1..0, Super+Q close,
 Super+Return terminal, Super+S scratchpad (Super+Shift+S parks a window),
-Super+F fullscreen, workspace 10 labeled 0 on the bar, bar pins 1–5.
+Super+F maximize (Novalis match), workspace 10 labeled 0 on the bar, bar pins 1–5.
 
 ## Look
 
