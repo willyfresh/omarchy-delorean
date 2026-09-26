@@ -54,7 +54,7 @@ Super+F maximize (Novalis match), workspace 10 labeled 0 on the bar, bar pins 1â
 
 Custom Omarchy theme `delorean`: flux cyan `#5AD4FF`, time-circuit amber
 `#FFB000`, taillight red `#E53935`, stainless black `#0A0C0E`. Bar date/time
-is white demibold with a dark outline so it reads on the transparent bar.
+is white on a solid `#161C22` plate so it reads on the transparent bar.
 
 ## Out of scope until we say so
 

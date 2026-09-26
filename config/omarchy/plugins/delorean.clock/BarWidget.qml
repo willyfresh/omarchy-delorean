@@ -82,7 +82,7 @@ BarWidget {
   // dot takes the label width; vertically it is a stack of icon-sized lines,
   // so the dot takes one line — the same mark every icon widget gets, rather
   // than a rule running the height of the whole stack.
-  readonly property real openPanelIndicatorWidth: button.labelWidth
+  readonly property real openPanelIndicatorWidth: root.vertical ? Style.bar.iconSlot : clockLabel.implicitWidth
   readonly property real openPanelIndicatorHeight: Math.max(Style.space(10), Math.round(Style.bar.iconSlot * 0.55))
 
   // Forwarded so this widget can stand in for the panel as the bar's popout
@@ -139,10 +139,10 @@ BarWidget {
     function toggle(): void { root.togglePanel() }
   }
 
-  // White + demibold + a dark outline so the date/time reads on a
-  // transparent bar, independent of the wallpaper strip behind it.
+  // Solid plate behind the label. The bar is transparent, and a type
+  // outline still disappeared into the wallpaper.
   readonly property color clockColor: "#FFFFFF"
-  readonly property color clockOutline: "#CC0A0C0E"
+  readonly property color clockPlate: "#161C22"
 
   WidgetButton {
     id: button
@@ -154,7 +154,7 @@ BarWidget {
     labelVisible: false
     hasVisualContent: root.vertical ? root.verticalLines.length > 0 : text !== ""
     fixedHeight: root.vertical ? root.verticalLines.length * Style.bar.iconSlot : -1
-    horizontalMargin: 8.75
+    horizontalMargin: 14
     verticalPadding: 8.75
 
     onPressed: function(b) {
@@ -163,18 +163,33 @@ BarWidget {
       else root.togglePanel()
     }
 
-    Text {
-      visible: !root.vertical
+    Rectangle {
+      visible: !root.vertical && root.displayText !== ""
       anchors.centerIn: parent
-      text: root.displayText
-      color: root.clockColor
-      font.family: button.fontFamily
-      font.pixelSize: button.fontSize
-      font.weight: Font.DemiBold
-      style: Text.Outline
-      styleColor: root.clockOutline
-      renderType: Text.NativeRendering
-      textFormat: Text.PlainText
+      width: clockLabel.implicitWidth + Style.space(16)
+      height: Math.max(Style.space(22), Math.min(parent.height - Style.space(6), clockLabel.implicitHeight + Style.space(8)))
+      radius: Math.round(height / 2)
+      color: root.clockPlate
+
+      Text {
+        id: clockLabel
+        anchors.centerIn: parent
+        text: root.displayText
+        color: root.clockColor
+        font.family: button.fontFamily
+        font.pixelSize: button.fontSize
+        font.weight: Font.Normal
+        renderType: Text.NativeRendering
+        textFormat: Text.PlainText
+      }
+    }
+
+    Rectangle {
+      visible: root.vertical && root.verticalLines.length > 0
+      anchors.fill: parent
+      anchors.margins: Style.space(3)
+      radius: Style.space(6)
+      color: root.clockPlate
     }
 
     Column {
