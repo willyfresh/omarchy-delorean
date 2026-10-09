@@ -95,6 +95,8 @@ install_desktop() {
 
 install_desktop "$ROOT/config/applications/youtube-music.desktop" \
   "$apps/chrome-cinhimbnkkaeohfgghhklpknlkffjgod-Default.desktop"
+install_desktop "$ROOT/config/applications/youtube.desktop" \
+  "$apps/YouTube.desktop"
 install_desktop "$ROOT/config/applications/board-game-arena.desktop" \
   "$apps/chrome-pogkokppkghfaeboimdkfifmcmlhngnl-Default.desktop"
 install_desktop "$ROOT/config/applications/gmail.desktop" \

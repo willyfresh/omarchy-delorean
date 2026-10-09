@@ -17,17 +17,21 @@ DeLorean theme. Not a distro fork.
 
 | Want | How |
 |------|-----|
-| Super+W browser | Chrome is already the xdg default |
-| Super+T VS Code | Float moves to Super+Alt+T |
+| Super+Shift+W browser | Focus or launch Chrome. Super+W stays unbound (was close, then browser) |
+| Super+Shift+T VS Code | Super+T is float again |
 | Super+E file manager | Nautilus; Super+Shift+F stays |
 | Super+L lock | Layout toggle moves to Super+Ctrl+L |
-| Discord | Super+D native `discord` client (webapp logged out on close) |
-| Google Messages | Super+Shift+Return (was a redundant Browser) |
+| Discord | Super+Shift+D native `discord` client. Docker is Super+Shift+Alt+D |
+| Google Messages | Super+Shift+M (was Super+Shift+Return) |
+| Google Maps | Super+Shift+L (was Super+Shift+M) |
 | Board Game Arena | Super+Shift+B (was a redundant Browser) |
 | Gmail | Super+Shift+G (was Signal); title-less `--app=URL` like Maps |
 | Google Calendar | Super+Shift+C (was HEY Calendar) |
-| LibreOffice | Super+O |
+| LibreOffice | Super+Shift+O. Super+O is pop-out again |
 | Thunderbird | Super+Shift+E; compose is Super+Shift+Alt+E |
+| YouTube Music, then YouTube | Super+Shift+Y |
+| Inkscape | Super+Shift+I |
+| GIMP | Super+Shift+P (was Google Photos) |
 | Apps stay on the current workspace | New windows stay on this desk. Tried empty-workspace placement; did not keep it |
 | Scrolling windows | Default layout is Hyprland scrolling (niri-like columns). Super+Ctrl+L still toggles this desk to dwindle |
 
@@ -62,4 +66,4 @@ is white on a solid `#161C22` plate so it reads on the transparent bar.
 - Extra hotkeys we have not asked for
 - Branding ASCII, monitor/dock profiles, NVIDIA/PRIME
 - Super+C / Super+V / Super+X (keep Omarchy clipboard; calculator stays Super+Ctrl+Q)
-- Super+Shift+W wallpaper (keep Omawrite; Super+Ctrl+Space cycles backgrounds)
+- Super+Shift+S Steam (keep scratchpad; Super+Ctrl+Space cycles backgrounds). Omawrite is Super+Shift+Alt+W

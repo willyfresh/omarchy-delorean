@@ -7,10 +7,12 @@ Omarchy stays the desktop. This repo is the muscle memory and look on top.
 ## What it changes
 
 - **Keys:** Super-alone launcher, Super+Q / Alt+F4 close, Shift+Insert paste,
-  Super+W browser, Super+T VS Code, Super+E files, Super+Shift+E Thunderbird,
-  Super+L lock, plus a few app launches. Super+Tab is Mirador workspace
-  overview. Super+period toggles the clickpad (stick stays). Super+arrows
-  walk windows then occupied desks (Left/Right stay on this desk; Shift+Up/Down
+  Super+E files, Super+L lock. Apps start or focus on Super+Shift+letter
+  (W Chrome, T VS Code, D Discord, E Thunderbird, G Gmail, C Calendar,
+  B Board Game Arena, M Messages, L Maps, O LibreOffice, Y Music then
+  YouTube, I Inkscape, P GIMP). Super+Tab is Mirador workspace overview.
+  Super+period toggles the clickpad (stick stays). Super+arrows walk
+  windows then occupied desks (Left/Right stay on this desk; Shift+Up/Down
   send+follow to numbered desks; Shift+Left/Right swap on this desk). Ctrl
   swaps too. CapsLock is Caps Lock; both Shifts together start an XCompose
   sequence. Collision table: [docs/binds.md](docs/binds.md).
@@ -50,6 +52,7 @@ config/xkb/                              # custom XKB option for Compose
 config/omarchy/plugins/delorean.tray/    # tray: all icons visible, no overflow drawer
 config/omarchy/plugins/delorean.clock/   # date/time: white on a solid plate
 config/applications/                     # --app=URL launchers (no PWA title bar)
+scripts/launch-youtube.sh                # Super+Shift+Y: Music, then YouTube
 config/omarchy/themes/delorean/          # custom Omarchy theme
   backgrounds/                           # wallpapers, kept in git
     1-gullwing-night.jpg

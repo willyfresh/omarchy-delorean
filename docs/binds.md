@@ -12,26 +12,32 @@ stolen key is unbound first.
 | Shift+Insert | unbound | Paste | Super+Ctrl+V also universal paste |
 | Super+V | Universal paste | Clipboard manager | Super+Ctrl+V is paste; Super+C/X stay copy/cut |
 | Shift+Delete | unbound | Cut | Super+X still Omarchy cut |
-| Super+W | Close window | Browser | Close is Super+Q + Alt+F4 (Super+Q is added; Omarchy 4 had no Super+Q) |
-| Super+T | Toggle float | VS Code | Float is Super+Alt+T |
+| Super+W | Close window | unbound | Close is Super+Q + Alt+F4. Browser is Super+Shift+W. Left unbound so old Super+W does not close a window |
+| Super+T | Toggle float, then VS Code | Toggle float | VS Code is Super+Shift+T. Super+Alt+T is gone |
 | Super+F | Full screen | Maximize window | Super+Ctrl+F stays windowed fullscreen; Super+Alt+F stays full width; Super+Shift+F stays files |
 | Super+E | unbound | File manager | Super+Shift+F stays |
 | Super+Shift+E | HEY Email | Thunderbird | Super+R stays unbound |
 | Super+Shift+Alt+E | HEY new message | Thunderbird compose | `thunderbird -compose` |
 | Super+L | Toggle workspace layout | Lock | Layout is Super+Ctrl+L |
 | Super+Ctrl+L | Lock | Toggle workspace layout | swapped with Super+L; default is scrolling, toggle is dwindle |
-| Super+D | unbound | Discord (native client) | Super+Shift+D is Docker TUI; webapp logged out on close |
-| Super+Shift+D | LazyDocker, then Discord | Docker TUI (stock) | Discord moved to Super+D |
+| Super+D | unbound, then Discord | unbound | Discord is Super+Shift+D |
+| Super+Shift+D | Docker TUI, then Discord, then Docker | Discord (native client) | Docker is Super+Shift+Alt+D. Do not launch-or-focus class discord (updater splash) |
 | Super+S | Toggle scratchpad | Same, but notify if empty | Super+Shift+S parks a window |
 | Super+Shift+S | Google Maps | Move window to scratchpad | Super+Alt+S still parks too |
-| Super+Shift+M | Music (Spotify) | Google Maps | Music TUI stays Super+Shift+Alt+M |
-| Super+M | unbound | YouTube Music | Super+Shift+Y still YouTube |
-| Super+Shift+B | Browser | Board Game Arena | Super+W still browser; Super+Shift+Alt+B still private |
-| Super+Shift+Return | Browser | Google Messages | Super+Shift+Ctrl+G still Messages |
+| Super+Shift+M | Music (Spotify), then Maps | Google Messages | Super+Shift+Ctrl+G still Messages |
+| Super+M | unbound, then YouTube Music | unbound | Super+Shift+Y is YouTube Music, then YouTube |
+| Super+Shift+Y | YouTube | YouTube Music, then YouTube | `scripts/launch-youtube.sh`. Music first |
+| Super+Shift+L | unbound | Google Maps | was Super+Shift+M |
+| Super+Shift+I | unbound | Inkscape | needs `omarchy pkg add inkscape` |
+| Super+Shift+P | Google Photos | GIMP | needs `omarchy pkg add gimp` |
+| Super+Shift+W | Omawrite | Browser | focus-or-launch `google-chrome`. Omawrite is Super+Shift+Alt+W. Wallpaper is Super+Ctrl+Space |
+| Super+Shift+T | unbound | VS Code | was Super+T |
+| Super+Shift+B | Browser | Board Game Arena | Super+Shift+W still browser; Super+Shift+Alt+B still private |
+| Super+Shift+Return | Browser, then Messages | unbound | Messages is Super+Shift+M |
 | Super+Shift+G | Signal | Gmail | Super+Shift+E still Thunderbird; WhatsApp is Super+Shift+Alt+G. Focus uses the Chrome app class so Thunderbird `@gmail.com` does not steal it. |
 | Super+Shift+C | HEY Calendar | Google Calendar | Super+C still universal copy |
-| Super+O | Pop window out | LibreOffice | Pop-out is Super+Shift+O |
-| Super+Shift+O | Obsidian, then LibreOffice | Pop window out | LibreOffice is Super+O |
+| Super+O | Pop window out, then LibreOffice | Pop window out | LibreOffice is Super+Shift+O |
+| Super+Shift+O | Obsidian, then LibreOffice, then pop-out | LibreOffice | Pop-out is Super+O |
 | Super+Tab | Next workspace | Mirador workspace overview | Super+Shift+Tab still previous desk; Super+Ctrl+Tab still former desk |
 | Super+period | unbound | Toggle clickpad | Stick and its three buttons stay. Super+Ctrl+period is still Transcode |
 | Super+Left/Right | Focus in that direction, then occupied workspace at the edge | Focus on this workspace only | Super+Up/Down still hop desks at the edge; Super+Tab is overview |
@@ -61,8 +67,8 @@ editing run `hyprctl reload`.
 Kept on purpose:
 
 - Super+C / Super+X — Omarchy universal copy/cut (paste is Super+Ctrl+V and Shift+Insert)
-- Super+Shift+W — Omawrite (wallpaper is Super+Ctrl+Space)
 - Super+Q, Super+Return, Super+1..0, Super+Shift+Tab, Super+arrows
+- Super+S / Super+Shift+S scratchpad (Steam stays on Novalis)
 
 Scratchpad: Super+Shift+S (and Super+Alt+S) send the focused window to a
 hidden workspace (`special:scratchpad`). Super+S slides that workspace

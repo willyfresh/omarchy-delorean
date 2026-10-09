@@ -12,6 +12,7 @@ list. Done items move into `goals.md` / `binds.md` and come off this page.
 | Focus follows mouse into Grok Bot | explained | 2026-09-26, see below |
 | Clock plate instead of a type outline | applied | 2026-09-26 |
 | Obsidian vault in Projects | done | moved 2026-09-26 |
+| Keybinds to match Novalis | you confirm (`hyprctl reload` done) | applied 2026-10-04 |
 
 ## Messages links open a logged-in Chrome
 
@@ -77,3 +78,36 @@ Applied 2026-09-08. Super+F is
 Novalis Super+F is `maximize-column`. Super+Ctrl+F stays windowed
 fullscreen; Super+Alt+F stays full width; Super+Shift+F stays files.
 Run `hyprctl reload` on this machine to pick it up.
+
+## Keybinds to match Novalis
+
+Applied 2026-10-04. Program start/focus is Super+Shift+letter, same
+chords as Novalis. Super-letter is window management again (float,
+pop-out, scratchpad). Confirm with Super+Shift+W / T / D / M / L / Y.
+
+| Key | Job |
+|-----|-----|
+| Super+Shift+W | Chrome (focus or launch) |
+| Super+Shift+T | VS Code |
+| Super+Shift+D | Discord |
+| Super+Shift+E / Super+Shift+Alt+E | Thunderbird / compose |
+| Super+Shift+G | Gmail |
+| Super+Shift+C | Google Calendar |
+| Super+Shift+B | Board Game Arena |
+| Super+Shift+M | Google Messages |
+| Super+Shift+L | Google Maps |
+| Super+Shift+O | LibreOffice |
+| Super+Shift+Y | YouTube Music, then YouTube |
+| Super+Shift+I | Inkscape |
+| Super+Shift+P | GIMP |
+| Super+Shift+Alt+A | Grok |
+| Super+Shift+Alt+D | Docker TUI |
+| Super+Shift+Alt+W | Omawrite |
+
+Vacated Super-letter: Super+T float, Super+O pop-out, Super+W unbound
+(not close — old browser muscle memory), Super+D / Super+M unbound.
+Scratchpad stays Super+S / Super+Shift+S. Super+period stays clickpad.
+Steam / Heroic / Noctalia Super+A I N W stay on Novalis.
+
+Inkscape and GIMP binds need `omarchy pkg add inkscape gimp` (sudo in a
+real terminal). Arrow grammar stays split.

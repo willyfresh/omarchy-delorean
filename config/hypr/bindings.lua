@@ -6,6 +6,7 @@ require("hypr.windows")
 
 -- Persistent title-less Chrome apps (dedicated profile, not Default --app).
 local webapp = os.getenv("HOME") .. "/Projects/delorean/scripts/launch-or-focus-webapp.sh"
+local scripts = os.getenv("HOME") .. "/Projects/delorean/scripts"
 
 -- Terminal-aware paste, same helper Omarchy uses for Super+V
 -- (default/hypr/bindings/clipboard.lua). Shift+Insert is the KDE habit.
@@ -59,16 +60,17 @@ hl.unbind("SUPER + CTRL + V") -- was: clipboard manager
 o.bind("SUPER + V", "Clipboard manager", "omarchy-shell shell toggle omarchy.clipboard")
 o.bind("SUPER + CTRL + V", "Universal paste", universal_clipboard_shortcut("CTRL", "V", "SHIFT", "Insert"))
 
--- Super+W was the only stock close chord in Omarchy 4. Browser takes Super+W;
--- Super+Q is the close we actually want. Alt+F4 too.
+-- Super+W was stock close, then browser. Keep it unbound so old
+-- Super+W-for-browser muscle memory does not close a window. Close is
+-- Super+Q + Alt+F4. Browser is Super+Shift+W.
 hl.unbind("SUPER + W")
-o.bind("SUPER + W", "Browser", { omarchy = "browser" })
 o.bind("SUPER + Q", "Close window", hl.dsp.window.close())
 
--- Super+T was toggle float. Float moves to Super+Alt+T.
+-- Super+T was VS Code. Float comes back (stock); Super+Alt+T is gone.
+-- VS Code is Super+Shift+T.
 hl.unbind("SUPER + T")
-o.bind("SUPER + T", "VS Code", { launch = "code", focus = "^[Cc]ode$" })
-o.bind("SUPER + ALT + T", "Toggle window floating/tiling", hl.dsp.window.float({ action = "toggle" }))
+hl.unbind("SUPER + ALT + T")
+o.bind("SUPER + T", "Toggle window floating/tiling", hl.dsp.window.float({ action = "toggle" }))
 
 -- Super+F was Omarchy exclusive fullscreen. Maximize matches Novalis
 -- Super+F (maximize-column). Super+Ctrl+F stays windowed fullscreen;
@@ -110,28 +112,47 @@ end
 hl.unbind("SUPER + S") -- was: toggle scratchpad (same key, empty-aware)
 o.bind("SUPER + S", "Toggle scratchpad", toggle_scratchpad)
 
--- Super+Shift+S was Google Maps. Scratch send takes it; Maps moves to
--- Super+Shift+M (was Spotify). Super+M (was free) is YouTube Music, not
--- Spotify. Super+Shift+Y stays stock YouTube.
+-- Super+Shift+S was Google Maps. Scratch send keeps it (Steam is Novalis-only).
 hl.unbind("SUPER + SHIFT + S") -- was: Google Maps
 o.bind("SUPER + SHIFT + S", "Move window to scratchpad", hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
-hl.unbind("SUPER + SHIFT + M") -- was: Music (Spotify)
-o.bind("SUPER + SHIFT + M", "Google Maps", webapp .. " chrome-maps.google.com.*Default https://maps.google.com/")
-o.bind("SUPER + M", "YouTube Music", webapp .. " chrome-music.youtube.com.*Default https://music.youtube.com/")
 
--- Super+Shift+B was a second Browser (Super+W still opens Chrome). BGA takes
--- it. Super+Shift+Alt+B stays private browser.
-hl.unbind("SUPER + SHIFT + B") -- was: Browser
-o.bind("SUPER + SHIFT + B", "Board Game Arena", webapp .. " chrome-boardgamearena.com.*Default https://boardgamearena.com/")
+-- Super+Shift letter apps: start or focus, same chords as Novalis.
+-- Super-letter stays window management (float, pop-out, scratchpad, files).
+hl.unbind("SUPER + D") -- was: Discord
+hl.unbind("SUPER + M") -- was: YouTube Music
 
--- Super+Shift+Return was a third Browser. Google Messages takes it.
-hl.unbind("SUPER + SHIFT + RETURN") -- was: Browser
-o.bind("SUPER + SHIFT + RETURN", "Google Messages", webapp .. " chrome-messages.google.com.*Default https://messages.google.com/web/conversations")
+hl.unbind("SUPER + SHIFT + W") -- was: Omawrite
+o.bind("SUPER + SHIFT + W", "Browser", { launch = "google-chrome-stable", focus = "^google-chrome$" })
+o.bind("SUPER + SHIFT + ALT + W", "Omawrite", { launch = "omawrite" })
+
+o.bind("SUPER + SHIFT + T", "VS Code", { launch = "code", focus = "^[Cc]ode$" })
+
+-- Super+Shift+D was Docker TUI. Discord takes it (updater splash is also
+-- class discord, so do not use launch-or-focus). Docker moves to Alt.
+hl.unbind("SUPER + SHIFT + D")
+o.bind("SUPER + SHIFT + D", "Discord", scripts .. "/launch-discord.sh")
+o.bind("SUPER + SHIFT + ALT + D", "Docker", { tui = "omarchy-launch-docker-tui" })
+
+-- Super+O was LibreOffice. Pop-out comes back (stock). LibreOffice is
+-- Super+Shift+O (was Obsidian, then pop-out).
+hl.unbind("SUPER + O")
+hl.unbind("SUPER + SHIFT + O")
+o.bind("SUPER + O", "Pop window out (float & pin)", "omarchy-hyprland-window-pop")
+o.bind("SUPER + SHIFT + O", "LibreOffice", { launch = "libreoffice", focus = "(libreoffice|soffice)" })
+
+hl.unbind("SUPER + SHIFT + M") -- was: Music (Spotify), then Maps
+o.bind("SUPER + SHIFT + M", "Google Messages", webapp .. " chrome-messages.google.com.*Default https://messages.google.com/web/conversations")
+hl.unbind("SUPER + SHIFT + RETURN") -- was: Browser, then Messages
 hl.unbind("SUPER + SHIFT + CTRL + G") -- was: Google Messages (stock, Default-profile --app)
 o.bind("SUPER + SHIFT + CTRL + G", "Google Messages", webapp .. " chrome-messages.google.com.*Default https://messages.google.com/web/conversations")
 
--- Super+Shift+G was Signal. Gmail takes it (title-less --app=URL). Super+Shift+E
--- stays Thunderbird; Super+Shift+Alt+G stays WhatsApp.
+o.bind("SUPER + SHIFT + L", "Google Maps", webapp .. " chrome-maps.google.com.*Default https://maps.google.com/")
+
+-- Super+Shift+B was a second Browser. BGA takes it. Super+Shift+Alt+B stays private.
+hl.unbind("SUPER + SHIFT + B") -- was: Browser
+o.bind("SUPER + SHIFT + B", "Board Game Arena", webapp .. " chrome-boardgamearena.com.*Default https://boardgamearena.com/")
+
+-- Super+Shift+G was Signal. Gmail takes it (title-less --app=URL).
 -- Focus by Chrome app class, not the label "Gmail": launch-or-focus matches
 -- titles too, and Thunderbird's "willyfresh@gmail.com" has a \bGmail\b hit.
 hl.unbind("SUPER + SHIFT + G") -- was: Signal
@@ -141,20 +162,13 @@ o.bind("SUPER + SHIFT + G", "Gmail", webapp .. " chrome-mail.google.com.*Default
 hl.unbind("SUPER + SHIFT + C") -- was: HEY Calendar
 o.bind("SUPER + SHIFT + C", "Google Calendar", webapp .. " chrome-calendar.google.com.*Default https://calendar.google.com/")
 
--- Super+D was the Discord webapp (logged out on close). Native client now.
--- Do not use launch-or-focus on class discord: the updater splash matches
--- and Super+D just raises "Discord Updater".
-o.bind("SUPER + D", "Discord", os.getenv("HOME") .. "/Projects/delorean/scripts/launch-discord.sh")
+hl.unbind("SUPER + SHIFT + Y") -- was: YouTube
+o.bind("SUPER + SHIFT + Y", "YouTube Music, then YouTube", scripts .. "/launch-youtube.sh")
 
--- Super+Shift+D was Docker TUI, then Discord. Docker gets the chord back.
-hl.unbind("SUPER + SHIFT + D")
-o.bind("SUPER + SHIFT + D", "Docker", { tui = "omarchy-launch-docker-tui" })
+hl.unbind("SUPER + SHIFT + P") -- was: Google Photos
+o.bind("SUPER + SHIFT + P", "GIMP", { launch = "gimp", focus = "gimp" })
 
--- Swap: Super+O was pop-out, Super+Shift+O was LibreOffice (was Obsidian).
-hl.unbind("SUPER + O") -- was: pop window out
-hl.unbind("SUPER + SHIFT + O") -- was: Obsidian, then LibreOffice
-o.bind("SUPER + O", "LibreOffice", { launch = "libreoffice" })
-o.bind("SUPER + SHIFT + O", "Pop window out (float & pin)", "omarchy-hyprland-window-pop")
+o.bind("SUPER + SHIFT + I", "Inkscape", { launch = "inkscape", focus = "inkscape" })
 
 -- Super+Tab was next workspace. Mirador is the workspace overview; Super+Shift+Tab
 -- still goes to the previous occupied desk.
@@ -163,4 +177,4 @@ o.bind("SUPER + TAB", "Workspace overview", "omarchy-shell shell toggle mirador 
 
 -- Super+period toggles the clickpad; the stick and its three buttons stay.
 -- Super+Ctrl+period remains Transcode. xkbcommon names the key "period".
-o.bind("SUPER + period", "Toggle trackpad", os.getenv("HOME") .. "/Projects/delorean/scripts/toggle-trackpad.sh")
+o.bind("SUPER + period", "Toggle trackpad", scripts .. "/toggle-trackpad.sh")
