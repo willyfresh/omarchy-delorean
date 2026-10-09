@@ -13,6 +13,7 @@ list. Done items move into `goals.md` / `binds.md` and come off this page.
 | Clock plate instead of a type outline | applied | 2026-09-26 |
 | Obsidian vault in Projects | done | moved 2026-09-26 |
 | Keybinds to match Novalis | you confirm (`hyprctl reload` done) | applied 2026-10-04 |
+| VLC, Inkscape, GIMP (+ web-dev extras) | you pick | review 2026-10-04 |
 
 ## Messages links open a logged-in Chrome
 
@@ -111,3 +112,41 @@ Steam / Heroic / Noctalia Super+A I N W stay on Novalis.
 
 Inkscape and GIMP binds need `omarchy pkg add inkscape gimp` (sudo in a
 real terminal). Arrow grammar stays split.
+
+## VLC, Inkscape, GIMP (+ web-dev extras)
+
+Inbox 2026-10-04. None of the three is installed. Novalis already has
+Inkscape and GIMP (`cachyos/packages/extra.txt`). Omarchy already plays
+video with `mpv`.
+
+Named, ready:
+
+```
+omarchy pkg add vlc inkscape gimp
+```
+
+| Package | Repo | Why |
+|---------|------|-----|
+| `vlc` 3.0.23 | extra | "open this file" player. `mpv` stays the Omarchy default |
+| `inkscape` 1.4.4 | extra | vector editor. Same pick as Novalis |
+| `gimp` 3.2.4 | extra | Photoshop-type editor. Same pick as Novalis. `pinta` stays for quick raster |
+
+Already here for web work: VS Code, Chrome, git, lazygit, Docker /
+Compose / lazydocker, Node (mise 26.7.0 plus distro `nodejs-lts-jod` 22),
+Python, Ruby, ImageMagick, ffmpeg, libvips, OBS, Kdenlive, Bitwarden,
+Obsidian, Thunderbird, LibreOffice.
+
+The gap for Willy Fresh IT / WordPress:
+
+| Extra | How | Why |
+|-------|-----|-----|
+| PHP + Composer | `omarchy install dev-env php` | WordPress builds. Not installed |
+| FileZilla | `omarchy pkg add filezilla` | DreamHost FTP/SFTP |
+| DBeaver | `omarchy pkg add dbeaver` | local/remote SQL if you want a GUI. Skip if Docker + CLI is enough |
+
+Skip unless you ask: Krita (Novalis picked GIMP), Steam / Heroic
+(Novalis), bun / Go / Rust (`omarchy install dev-env` when a project
+needs them).
+
+Inkscape / GIMP chords are live (Super+Shift+I / P). They no-op until
+the packages are in.
