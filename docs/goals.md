@@ -33,7 +33,7 @@ DeLorean theme. Not a distro fork.
 | Inkscape | Super+Shift+I |
 | GIMP | Super+Shift+P (was Google Photos) |
 | Apps stay on the current workspace | New windows stay on this desk. Tried empty-workspace placement; did not keep it |
-| Scrolling windows | Default layout is Hyprland scrolling (niri-like columns). Super+Ctrl+L still toggles this desk to dwindle |
+| Dwindle tiling | Stock Hyprland tiling. Tried scrolling columns; did not keep it. Super+Ctrl+L still toggles this desk to scrolling |
 
 ## From Windows
 

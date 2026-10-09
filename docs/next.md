@@ -13,6 +13,7 @@ list. Done items move into `goals.md` / `binds.md` and come off this page.
 | Clock plate instead of a type outline | applied | 2026-09-26 |
 | Obsidian vault in Projects | done | moved 2026-09-26 |
 | Keybinds to match Novalis | you confirm (`hyprctl reload` done) | applied 2026-10-04 |
+| Dwindle tiling again | applied | 2026-10-08 |
 | VLC, Inkscape, GIMP (+ web-dev extras) | you pick | review 2026-10-04 |
 
 ## Messages links open a logged-in Chrome
@@ -54,11 +55,13 @@ Two things make it feel different from a Chrome web app:
   Chrome windows. Hover moves Hyprland's focus to either of them. Electron
   often does not put the caret in the page until a click, so the border
   can change while typing still goes to the window you left.
-- Scrolling layout will not slide a column into view on hover unless at
-  least 40% of it is on screen (`scrolling:follow_min_visible`, stock
-  0.4). Grok Bot opened at about a quarter of this 3840-wide panel, so
-  hovering it focuses the sliver and leaves the web app column where it
-  is. A click, or Super+Left/Right, pulls it in.
+- While the default was scrolling, a column would not slide into view on
+  hover unless at least 40% of it was on screen
+  (`scrolling:follow_min_visible`, stock 0.4). Grok Bot opened at about a
+  quarter of this 3840-wide panel, so hovering it focused the sliver and
+  left the web app column where it was. A click, or Super+Left/Right,
+  pulled it in. The default is dwindle again, so this only applies after
+  Super+Ctrl+L.
 
 ## Clock plate instead of a type outline
 
@@ -112,6 +115,13 @@ Steam / Heroic / Noctalia Super+A I N W stay on Novalis.
 
 Inkscape and GIMP binds need `omarchy pkg add inkscape gimp` (sudo in a
 real terminal). Arrow grammar stays split.
+
+## Dwindle tiling again
+
+Applied 2026-10-08. `config/hypr/looknfeel.lua` sets `general.layout` back
+to stock dwindle. Super+Ctrl+L still toggles the current desk to
+scrolling. Saved scrolling rules for workspaces 2 and 3 were removed so
+they follow the default.
 
 ## VLC, Inkscape, GIMP (+ web-dev extras)
 

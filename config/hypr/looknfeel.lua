@@ -1,8 +1,8 @@
--- Delorean overlay — niri-like side-scrolling windows by default.
--- Super+Ctrl+L still toggles this workspace between scrolling and dwindle.
+-- Delorean overlay — stock dwindle tiling.
+-- Super+Ctrl+L still toggles this workspace to scrolling.
 
 hl.config({
   general = {
-    layout = "scrolling",
+    layout = "dwindle",
   },
 })

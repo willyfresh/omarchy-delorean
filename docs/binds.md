@@ -19,7 +19,7 @@ stolen key is unbound first.
 | Super+Shift+E | HEY Email | Thunderbird | Super+R stays unbound |
 | Super+Shift+Alt+E | HEY new message | Thunderbird compose | `thunderbird -compose` |
 | Super+L | Toggle workspace layout | Lock | Layout is Super+Ctrl+L |
-| Super+Ctrl+L | Lock | Toggle workspace layout | swapped with Super+L; default is scrolling, toggle is dwindle |
+| Super+Ctrl+L | Lock | Toggle workspace layout | swapped with Super+L; default is dwindle, toggle is scrolling |
 | Super+D | unbound, then Discord | unbound | Discord is Super+Shift+D |
 | Super+Shift+D | Docker TUI, then Discord, then Docker | Discord (native client) | Docker is Super+Shift+Alt+D. Do not launch-or-focus class discord (updater splash) |
 | Super+S | Toggle scratchpad | Same, but notify if empty | Super+Shift+S parks a window |
@@ -56,8 +56,8 @@ drop site data when closed. Links out of Messages should stay in that
 signed-in session.
 
 New windows stay on the current workspace. The default layout is Hyprland
-scrolling (side-scrolling columns); Super+Ctrl+L still toggles this desk
-to dwindle. Super+1..0 jump to a numbered desk; Super+Tab opens Mirador.
+dwindle (stock tiling); Super+Ctrl+L still toggles this desk to scrolling.
+Super+1..0 jump to a numbered desk; Super+Tab opens Mirador.
 Super+Left/Right walk columns on this desk; Super+Up/Down walk windows,
 then occupied desks. Super+Shift+Up/Down take the window to the adjacent
 numbered desk; Super+Shift+Left/Right swap on this desk.

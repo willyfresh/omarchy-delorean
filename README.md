@@ -17,8 +17,8 @@ Omarchy stays the desktop. This repo is the muscle memory and look on top.
   swaps too. CapsLock is Caps Lock; both Shifts together start an XCompose
   sequence. Collision table: [docs/binds.md](docs/binds.md).
 - **Theme:** `delorean` — flux cyan, time-circuit amber, stainless black.
-- **Layout:** Hyprland scrolling windows (niri-like columns). Super+Ctrl+L
-  still toggles this desk to dwindle.
+- **Layout:** Hyprland dwindle tiling (stock). Super+Ctrl+L still toggles
+  this desk to scrolling.
 
 Everything else is stock Omarchy (ten workspaces, bar, menus, capture, idle).
 Install extra software with `omarchy pkg add` / `omarchy install` when you want it.
@@ -46,7 +46,7 @@ after a new login):
 ```
 config/hypr/bindings.lua                 # keybinding overrides
 config/hypr/input.lua                    # CapsLock + both-Shifts Compose
-config/hypr/looknfeel.lua                # scrolling windows by default
+config/hypr/looknfeel.lua                # dwindle tiling (stock default)
 config/hypr/windows.lua                  # Super+arrows focus/move; tile on current workspace
 config/xkb/                              # custom XKB option for Compose
 config/omarchy/plugins/delorean.tray/    # tray: all icons visible, no overflow drawer
