@@ -38,9 +38,22 @@ local function is_fullscreen(window)
   return fs and fs ~= 0 and fs ~= false
 end
 
+local function scrolling_layout()
+  local ws = hl.get_active_special_workspace() or hl.get_active_workspace()
+  return ws and ws.tiled_layout == "scrolling"
+end
+
 local function has_neighbor(active, dir)
   if is_fullscreen(active) then
-    return false
+    -- Mode 1 is maximized. In the scrolling layout that is this column,
+    -- not the whole desk, so a window beside it is still a neighbor.
+    -- Mode 2 covers the monitor and still blocks directional focus.
+    local maximized_column = active.fullscreen == 1
+      and (dir == "l" or dir == "r")
+      and scrolling_layout()
+    if not maximized_column then
+      return false
+    end
   end
 
   local ws_id = workspace_id(active)
