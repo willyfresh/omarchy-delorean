@@ -239,3 +239,33 @@ Start: open SuperCollider and wait for
 `SuperDirt: listening to Tidal on port 57120`. In VS Code, save a
 file as `something.tidal`, run TidalCycles: Boot Tidal Cycles, then
 Shift+Enter on `d1 $ sound "bd sn"`.
+## Terminal apps, leave the mouse
+
+Copied from the Novalis inbox 2026-10-07. Installed on Novalis
+2026-10-08. Nothing from this list is installed on Delorean. No key
+until you name one or two. Nautilus, Chrome, Thunderbird, Discord,
+and Steam stay until one of these replaces it.
+
+| App | Job | Package |
+|-----|-----|---------|
+| superfile (`spf`) | file manager | `superfile` |
+| concord | Discord | AUR `concord-bin` |
+| lynx | text web | `lynx` |
+| neovim | editor | `neovim` |
+| caligula | write a disk image | `caligula` |
+| neomutt | mail | `neomutt` |
+| valvefm | FM radio | not packaged; GitHub Zorig/valveFM |
+| steam-tui | Steam library via steamcmd | AUR `steam-tui` |
+
+Super+Shift+D stays the Electron Discord client until you say otherwise.
+steam-tui still starts the real Steam client for games that need it.
+Novalis also has kitty for Concord images. It is not installed here.
+
+## Super alone does nothing
+
+Backlog. Stock Omarchy leaves Super alone unbound. This overlay binds
+Super release to `omarchy-menu toggle` in `config/hypr/bindings.lua`.
+`docs/goals.md` still lists that as a KDE habit.
+
+A bare press should do nothing. Super+Space still opens the menu.
+Novalis already does this (2026-10-07). The other Super chords stay.
