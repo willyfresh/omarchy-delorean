@@ -1,2 +1,4 @@
 # Scratch inbox. Dump obstacles here, then hand the file over.
 # Absorbed items live in docs/next.md.
+I want to check out lazygit, install any other tui we haven't installed yet, and make sure the ones that need to open in kttty. 
+and also, let's use GNU Stow for clean symlinking between the project directory and the config directory.
