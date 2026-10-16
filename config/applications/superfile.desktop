@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Superfile
+Comment=File manager, Kitty image preview
+Exec=kitty --class superfile --title Superfile spf
+Terminal=false
+Type=Application
+Icon=system-file-manager
+StartupNotify=true

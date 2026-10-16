@@ -15,6 +15,9 @@ list. Done items move into `goals.md` / `binds.md` and come off this page.
 | Keybinds to match Novalis | you confirm (`hyprctl reload` done) | applied 2026-10-04 |
 | Dwindle tiling again | applied | 2026-10-08 |
 | VLC, Inkscape, GIMP (+ web-dev extras) | you pick | review 2026-10-04 |
+| Lazygit, Yazi, image TUIs in kitty | applied | 2026-10-15 |
+| GNU Stow for the overlay | applied | 2026-10-15 |
+| Tidal Cycles | applied | 2026-10-15 |
 
 ## Messages links open a logged-in Chrome
 
@@ -160,3 +163,79 @@ needs them).
 
 Inkscape / GIMP chords are live (Super+Shift+I / P). They no-op until
 the packages are in.
+
+## Lazygit, Yazi, image TUIs in kitty
+
+Applied 2026-10-15. Lazygit 0.65.0 was already installed. It has no
+pictures, so the launcher uses the default terminal (Foot):
+`Lazygit` in the app menu, `lazygit` in a shell.
+
+Yazi 26.9.1 was the terminal file manager not installed yet. Image
+previews use Kitty's graphics protocol, so its launcher runs
+`kitty --class yazi yazi`. Superfile was already that way.
+
+Kitty, because they draw images:
+
+| Launcher | Command |
+|----------|---------|
+| Concord | `kitty --class concord concord` |
+| Superfile | `kitty --class superfile spf` |
+| Yazi | `kitty --class yazi yazi` |
+| NeoMutt | `kitty --class neomutt neomutt` |
+| LazyVim | `kitty --class lazyvim nvim` |
+
+NeoMutt image attachments go through `scripts/neomutt-icat.sh`. The
+picture stays until Enter. Other attachment types still use
+`/etc/mailcap`.
+
+Lynx, caligula, valvefm, steam-tui, lazydocker, btop, dua, and
+cliamp do not draw images. They stay on the default terminal.
+Foot stays the default. Super+Return is unchanged.
+
+Not installed: `impala` (wifi) and `wiremix` (PipeWire mixer). Say
+if you want those.
+
+## GNU Stow for the overlay
+
+Applied 2026-10-15. `scripts/apply.sh` restows the `config` package
+into `~/.config`. Stow folds into the real `hypr` and `omarchy`
+directories and symlinks only our files. `config/applications` is
+ignored (`.stow-local-ignore`) and still copied onto the Chrome
+launcher names.
+
+Zeibytes' repos (`MangoWM`, `most-racist-rice-V2`) put one package
+per app at the repo root and run `stow -t ~/.config hypr kitty`,
+because those repos are only dotfiles. This repo also has scripts
+and docs, so the overlay stays one package whose tree matches
+`~/.config`.
+
+Needs the `stow` package. Absolute links from the old `ln -sfn`
+list are replaced with Stow's relative links on the first apply.
+
+## Tidal Cycles
+
+Applied 2026-10-15, from the Arch steps at
+https://tidalcycles.org/docs/getting-started/linux_install
+
+Installed: SuperCollider 3.14.1, sc3-plugins 3.14.0, GHC 9.6.6,
+haskell-tidal 1.9.5 (and the Haskell libraries that package lists),
+qjackctl 1.0.6. SuperDirt v1.7.4, Dirt-Samples, and Vowel are
+quarks under `~/.local/share/SuperCollider/downloaded-quarks`.
+`~/.local/share/SuperCollider/startup.scd` is SuperDirt's startup
+script, so opening SuperCollider boots SuperDirt with enough
+buffers for the default samples. The VS Code extension is
+`tidalcycles.vscode-tidalcycles` 2.0.2.
+
+This machine already had PipeWire's JACK (`pipewire-jack`). The
+page's `jack2` package conflicts with that, so it was not
+installed. qjackctl uses the JACK library that is already here.
+`mesa-demos` was not installed, so there was nothing to remove.
+The full `pacman -Syu` in the page was not run.
+
+`willyfresh` is in the `audio` group. That applies at the next
+login. Log out and back in before the first session.
+
+Start: open SuperCollider and wait for
+`SuperDirt: listening to Tidal on port 57120`. In VS Code, save a
+file as `something.tidal`, run TidalCycles: Boot Tidal Cycles, then
+Shift+Enter on `d1 $ sound "bd sn"`.

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Yazi
+Comment=File manager, Kitty image preview
+TryExec=yazi
+Exec=kitty --class yazi --title Yazi yazi
+Terminal=false
+Type=Application
+Icon=yazi
+StartupNotify=true
+Categories=System;FileTools;FileManager;
+Keywords=yazi;files;terminal;

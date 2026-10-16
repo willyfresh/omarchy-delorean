@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Lazygit
+Comment=Git TUI
+Exec=xdg-terminal-exec --app-id=TUI.tile -e lazygit
+Terminal=false
+Type=Application
+Icon=git
+StartupNotify=true
+Categories=Development;
+Keywords=git;lazygit;terminal;

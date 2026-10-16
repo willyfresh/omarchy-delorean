@@ -29,10 +29,10 @@ Install extra software with `omarchy pkg add` / `omarchy install` when you want 
 ~/Projects/delorean/scripts/apply.sh --theme
 ```
 
-That symlinks this repo into `~/.config/hypr/bindings.lua`,
-`~/.config/hypr/input.lua`, `~/.config/hypr/looknfeel.lua`,
-`~/.config/xkb`, and `~/.config/omarchy/themes/delorean`, reloads
-Hyprland, and sets the theme.
+That uses GNU Stow to link `config/` into `~/.config` (the package
+tree mirrors the config directory; `applications/` is copied, not
+stowed, because those launchers keep other names), reloads Hyprland,
+and sets the theme. Needs `stow` (`omarchy pkg add stow`).
 
 Add this account to the docker group (sudo in a real terminal; takes effect
 after a new login):
@@ -44,6 +44,7 @@ after a new login):
 ## Layout
 
 ```
+config/.stow-local-ignore               # stow skips applications/
 config/hypr/bindings.lua                 # keybinding overrides
 config/hypr/input.lua                    # CapsLock + both-Shifts Compose
 config/hypr/looknfeel.lua                # dwindle tiling (stock default)
@@ -60,9 +61,10 @@ config/omarchy/themes/delorean/          # custom Omarchy theme
     3-brushed-steel.jpg
     4-eighty-eight.jpg
     5-flux-capacitor.jpg
-scripts/apply.sh
+scripts/apply.sh                         # stow config/ into ~/.config
 scripts/docker-group.sh
 scripts/toggle-trackpad.sh
+scripts/neomutt-icat.sh                  # kitty image preview for NeoMutt
 scripts/collapse-webapp-profile.sh
 docs/goals.md
 docs/binds.md

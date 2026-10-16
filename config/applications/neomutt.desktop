@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=NeoMutt
+Comment=Mail, Kitty image attachments
+TryExec=neomutt
+Exec=kitty --class neomutt --title NeoMutt neomutt
+Terminal=false
+Type=Application
+Icon=internet-mail
+StartupNotify=true
+Categories=Network;Email;
+Keywords=neomutt;mail;email;terminal;

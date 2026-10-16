@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Concord
+Comment=Discord TUI, Kitty graphics
+Exec=kitty --class concord --title Concord concord
+Terminal=false
+Type=Application
+Icon=discord
+StartupNotify=true
+Categories=Network;Chat;

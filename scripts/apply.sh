@@ -23,29 +23,64 @@ done
 
 stamp="$(date +%s)"
 
-link() {
-  local src="$1" dest="$2"
-  if [[ -e "$dest" || -L "$dest" ]]; then
-    if [[ -L "$dest" ]] && [[ "$(readlink -f "$dest")" == "$(readlink -f "$src")" ]]; then
-      echo "already linked: $dest"
-      return
-    fi
-    mv "$dest" "${dest}.bak.${stamp}"
-    echo "backed up ${dest} -> ${dest}.bak.${stamp}"
-  fi
-  mkdir -p "$(dirname "$dest")"
-  ln -sfn "$src" "$dest"
-  echo "linked $dest -> $src"
+if ! command -v stow >/dev/null 2>&1; then
+  echo "stow is required: omarchy pkg add stow" >&2
+  exit 1
+fi
+
+# Stow never owns an absolute symlink. The old linker used those.
+# Drop one only when it already points at this package, then stow
+# recreates it as a relative link. A relative link that already
+# points at the package is left for restow. A real directory is
+# folded into. Never follow a symlink: ~/.config/xkb is the package.
+points_at_src() {
+  local dest="$1" src="$2" target src_real
+  [[ -L $dest ]] || return 1
+  target="$(readlink -f "$dest" || true)"
+  src_real="$(readlink -f "$src")"
+  [[ -n $target && $target == "$src_real" ]]
 }
 
-link "$ROOT/config/hypr/bindings.lua" "$HOME/.config/hypr/bindings.lua"
-link "$ROOT/config/hypr/input.lua" "$HOME/.config/hypr/input.lua"
-link "$ROOT/config/hypr/looknfeel.lua" "$HOME/.config/hypr/looknfeel.lua"
-link "$ROOT/config/hypr/windows.lua" "$HOME/.config/hypr/windows.lua"
-link "$ROOT/config/xkb" "$HOME/.config/xkb"
-link "$ROOT/config/omarchy/themes/delorean" "$HOME/.config/omarchy/themes/delorean"
-link "$ROOT/config/omarchy/plugins/delorean.tray" "$HOME/.config/omarchy/plugins/delorean.tray"
-link "$ROOT/config/omarchy/plugins/delorean.clock" "$HOME/.config/omarchy/plugins/delorean.clock"
+prep_stow() {
+  local rel="$1"
+  local src="$ROOT/config/$rel"
+  local dest="$HOME/.config/$rel"
+  [[ -e $src || -L $src ]] || return 0
+  if points_at_src "$dest" "$src"; then
+    if [[ $(readlink "$dest") == /* ]]; then
+      rm "$dest"
+      echo "replaced absolute link: $dest"
+    fi
+    return 0
+  fi
+  if [[ -L $dest || ( -e $dest && ! -d $dest ) ]]; then
+    mv "$dest" "${dest}.bak.${stamp}"
+    echo "backed up ${dest} -> ${dest}.bak.${stamp}"
+    return 0
+  fi
+  if [[ -d $dest && -d $src ]]; then
+    local child base
+    shopt -s nullglob dotglob
+    for child in "$src"/*; do
+      base="$(basename "$child")"
+      [[ $base == . || $base == .. ]] && continue
+      prep_stow "$rel/$base"
+    done
+    shopt -u nullglob dotglob
+  fi
+}
+
+shopt -s nullglob dotglob
+for child in "$ROOT/config"/*; do
+  base="$(basename "$child")"
+  [[ $base == . || $base == .. || $base == applications || $base == .stow-local-ignore ]] && continue
+  prep_stow "$base"
+done
+shopt -u nullglob dotglob
+
+# Package tree mirrors ~/.config. See config/.stow-local-ignore.
+stow --dir="$ROOT" --target="$HOME/.config" --restow config
+echo "stowed config -> $HOME/.config"
 
 # Prefer the Delorean clock (higher-contrast date/time) over stock.
 shell_json="$HOME/.config/omarchy/shell.json"
@@ -109,6 +144,18 @@ install_desktop "$ROOT/config/applications/google-calendar.desktop" \
   "$apps/Google Calendar.desktop"
 install_desktop "$ROOT/config/applications/discord.desktop" \
   "$apps/Discord.desktop"
+install_desktop "$ROOT/config/applications/lazygit.desktop" \
+  "$apps/Lazygit.desktop"
+install_desktop "$ROOT/config/applications/yazi.desktop" \
+  "$apps/yazi.desktop"
+install_desktop "$ROOT/config/applications/neomutt.desktop" \
+  "$apps/NeoMutt.desktop"
+install_desktop "$ROOT/config/applications/concord.desktop" \
+  "$apps/Concord.desktop"
+install_desktop "$ROOT/config/applications/superfile.desktop" \
+  "$apps/Superfile.desktop"
+install_desktop "$ROOT/config/applications/lazyvim.desktop" \
+  "$apps/LazyVim.desktop"
 
 if command -v update-desktop-database >/dev/null 2>&1; then
   update-desktop-database "$apps" >/dev/null 2>&1 || true

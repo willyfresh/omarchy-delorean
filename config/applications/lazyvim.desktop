@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=LazyVim
+Comment=Neovim with LazyVim, Kitty images
+Keywords=lazy;nvim;neovim;
+Exec=kitty --class lazyvim --title LazyVim nvim
+Terminal=false
+Type=Application
+Icon=nvim
+StartupNotify=true

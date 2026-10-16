@@ -1,0 +1,32 @@
+# Replaces Stow's built-in ignore list for this package. Keep those
+# patterns, and skip desktop files. apply.sh copies those into
+# ~/.local/share/applications under different names.
+#
+# Zeibytes-style: this package tree is the target tree (~/.config).
+# Their repos put one package per app at the repo root because the
+# repo is only dotfiles. This repo also has scripts and docs, so the
+# overlay is the single package `config`.
+
+RCS
+.+,v
+
+CVS
+\.\#.+
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.gitignore
+\.gitmodules
+
+.+~
+\#.*\#
+
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+^/applications
