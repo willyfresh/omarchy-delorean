@@ -1,2 +1,71 @@
 # Scratch inbox. Dump obstacles here, then hand the file over.
 # Absorbed items live in docs/next.md.
+You are helping me prepare my Lenovo ThinkPad P50 for a clean CachyOS install.
+
+Current system: Omarchy (Arch-based, Hyprland).
+I already have most of my rice/config context in my Omarchy rice repo, so do not recreate or rewrite my desktop configuration.
+
+Goal:
+Safely back up everything needed to restore my environment after installing CachyOS, then prepare a clean migration. Do not install CachyOS, modify partitions, or delete anything without my explicit approval.
+
+Before doing anything:
+1. Ask me to confirm:
+   - the external backup destination/path
+   - whether to include browser profiles and large media/project directories
+   - whether I want a package list, Flatpak list, and systemd user-unit list
+   - whether I want to preserve /home or start completely fresh
+
+Back up the following:
+1. My Omarchy rice repo and any local uncommitted changes.
+2. Shell and Git config:
+   - ~/.bashrc, ~/.zshrc, ~/.profile, ~/.bash_profile
+   - ~/.gitconfig, ~/.gitignore_global
+3. SSH and GPG:
+   - ~/.ssh
+   - ~/.gnupg
+4. Browser data, if requested:
+   - Firefox/Chromium profiles, bookmarks, passwords/keys only if I explicitly confirm
+5. App configs:
+   - Hyprland, Waybar, terminal, launcher, notifications, GTK/Qt themes
+   - Neovim/VS Code settings
+   - Any other dotfiles referenced by my rice repo
+6. Development and project files:
+   - project directories
+   - local Git repos, including uncommitted changes and stashes
+   - WordPress/local-site files if applicable
+7. Container data:
+   - Docker/Podman volumes, named volumes, images if needed, compose files, and container-related configs
+8. System state:
+   - Installed package list:
+     pacman -Qqe > ~/pkglist-before-cachyos.txt
+   - Explicitly installed package list:
+     pacman -Qqe | grep -v "$(pacman -Qqg base-devel | paste -sd'|')" > ~/pkglist-explicit-before-cachyos.txt
+   - AUR/helper package list if applicable
+   - Flatpak list:
+     flatpak list --app --columns=application > ~/flatpak-apps.txt
+   - Enabled services:
+     systemctl list-unit-files --state=enabled > ~/enabled-system-services.txt
+     systemctl --user list-unit-files --state=enabled > ~/enabled-user-services.txt
+   - Installed fonts:
+     fc-list : family | sort -u > ~/installed-fonts.txt
+
+Backup process:
+1. Verify the destination has enough free space before copying.
+2. Use rsync with archive, verbose, and progress options.
+3. Preserve permissions, ownership, symlinks, and hidden files.
+4. Exclude caches, trash, node_modules, build artifacts, and other regenerable data unless I ask otherwise.
+5. Create a manifest of backed-up paths and file counts.
+6. Verify the backup after copying:
+   - compare key directories
+   - confirm SSH keys, GPG keys, Git repos, and the rice repo are present
+   - report total size and any errors
+
+After backup:
+1. Show me:
+   - backup destination
+   - total size
+   - list of top-level backed-up directories
+   - package/Flatpak/service manifests
+   - any files or directories that failed to copy
+2. Ask whether I want to proceed with preparing the CachyOS installer USB.
+3. Do not format, partition, wipe, or install anything until I explicitly approve the exact target disk and plan.
